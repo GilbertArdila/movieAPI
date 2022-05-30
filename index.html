@@ -4,11 +4,150 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!--Link to googleFonts-->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@1,300;1,500&family=Quattrocento+Sans:ital@1&display=swap" rel="stylesheet">
+<!--Link to css styles--> 
     <link rel="stylesheet" href="../movieAPI/styles/main.css">
     <title>API movies</title>
 </head>
 <body>
-    <h1>API movies</h1>
+    <header>
+        <section class="header-logo">
+            <img src="./images/movies+.png" alt="logo movies más">
+        </section>
+        <section class="header-links
+        ">
+        <a href="#" class="header-links__home">Inicio<img src="./images/home.webp" alt="home"></a>
+        <a href="#"  class="header-links__search">Buscar<img src="./images/search.webp" alt="search"></a>
+        <a href="#"  class="header-links__myList">Mi lista<img src="./images/plus.webp" alt="my list"></a>
+        <a href="#"  class="header-links__movies">Peliculas<img src="./images/movies.webp" alt="movies"></a>
+       
+    </section>
+
+        <section class="header-profile">
+            <p class="heaser-profile__name">Usuario</p>
+            <img src="./images/profile.webp" alt="profile image" class="section-profile__image">
+        </section>
+    </header>
+    <main>
+        <section class="newMovies">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk5SsKBZ0zZnrVnzwUrLp0mhejNugktfa2lg&usqp=CAU" alt="peliculas nuevas">
+            <p class="tituloPelicula">The Mandalorian</p>
+        </section>
+
+        <section class="studios">
+            <a href="#" class="studios-container"> <div class=" disney container"><img src="./images/disney.jfif" alt="disney"></div></a>
+
+            <a href="#" class="studios-container"> <div class=" pixar container"><img src="./images/pixar.jfif" alt="pixar"></div></a>
+
+            <a href="#" class="studios-container"><div class=" marvel container"><img src="./images/marvel.png" alt="marvel"></div></a>
+           
+           <a href="#" class="studios-container"><div class=" starWars container"><img src="./images/starWars.png" alt="starWars"></div></a>
+            
+           <a href="#" class="studios-container"><div class=" natgeo container"><img src="./images/natgeo.png" alt="nat geo"></div></a>
+            
+            
+            
+        </section>
+
+        <div class="sectionContainer">
+            <h3 class="section-title">Recomendaciones para ti</h3>
+            <section class="recomendations ">
+            
+                <div class="recomendation-container container"></div>
+                <div class="recomendation-container container"></div>
+                <div class="recomendation-container container"></div>
+                <div class="recomendation-container container"></div>
+                <div class="recomendation-container container"></div>
+                <div class="recomendation-container container"></div>
+           
+        </section>
+
+        </div>
+       
+        <div class="sectionContainer">
+            <h3 class="section-title"> Nuevos titulos</h3>
+            <section class="new">
+                <div class=" new-container container"></div>
+                <div class="new-container container"></div>
+                <div class="new-container container"></div>
+                <div class="new-container container"></div>
+                <div class="new-container container"></div>
+                <div class="new-container container"></div>
+            </section>
+        </div>
+       
+        <div class="sectionContainer">
+            <h3 class="section-title">Continúa viendo</h3>
+            <section class="continueWatching">
+                <div class="continueWatching-container container"></div>
+                <div class="continueWatching-container container"></div>
+                <div class="continueWatching-container container"></div>
+                <div class="continueWatching-container container"></div>
+                <div class="continueWatching-container container"></div>
+                <div class="continueWatching-container container"></div>
+            </section>
+            </div>
+
+        <div class="sectionContainer">
+            <h3 class="section-title">Titúlos similares</h3>
+            <section class="similars">
+                <div class="similars-container container"></div>
+                <div class="similars-container container"></div>
+                <div class="similars-container container"></div>
+                <div class="similars-container container"></div>
+                <div class="similars-container container"></div>
+                <div class="similars-container container"></div>
+            </section>
+        </div>
+       
+        <div class="sectionContainer">
+            <h3 class="section-title">Próximamente</h3>
+            <section class="commingSoon">
+                <div class="commingSoon-container container"></div>
+                <div class="commingSoon-container container"></div>
+                <div class="commingSoon-container container"></div>
+                <div class="commingSoon-container container"></div>
+                <div class="commingSoon-container container"></div>
+                <div class="commingSoon-container container"></div>
+            </section>
+        </div>
+        
+        <div class="sectionContainer">
+            <h3 class="section-title">Clasificación</h3>
+            <section class="classifications">
+               <a href="#" class="classifications-link">
+                   <h3>Animadas</h3>
+               </a><a href="#" class="classifications-link">
+                   <h3>Ciencia ficción</h3>
+               </a><a href="#" class="classifications-link">
+                   <h3>Westerm</h3>
+               </a><a href="#" class="classifications-link">
+                   <h3>Acción</h3>
+               </a><a href="#" class="classifications-link">
+                   <h3>Terror</h3>
+               </a>
+            </section>
+        </div>
+        
+    <footer>
+        <section class="footer-logo"><img src="./images/movies+.png" alt="logo"></section>
+        <section class="footer-terms">
+            <a href="#"><h3 class="section-title">Terminos y condiciones</h3></a>
+            
+        </section>
+        <section class="footer-aboutIt">
+            <a href="#"> <h3 class="section-title">Sobre Nosotros</h3></a>
+           
+        </section>
+    </footer>
+
+
+
+
+
     <script src="../movieAPI/scripts/personal.js"></script>
     <script src="../movieAPI/scripts/main.js"></script>
 </body>
