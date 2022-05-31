@@ -7,7 +7,10 @@ const continueWatchingContainer=document.querySelector(".continueWatchingContain
 const similarsContainer=document.querySelector(".similarsContainer");
 const commingSoonContainer=document.querySelector(".commingSoonContainer");
 const classificationsContainer=document.querySelector(".classificationsContainer");
+const moviesByClasification=document.querySelector(".moviesByClasification");
+const moviesByClasificationContainer=document.querySelector(".moviesByClasificationContainer");
 
 const section=document.querySelector(".classifications");
 const movieContainer=document.querySelector(".new");
+const section_title=document.querySelector(".moviesByClasificationContainer .section-title");
 

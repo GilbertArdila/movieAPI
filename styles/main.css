@@ -239,7 +239,40 @@ padding: 10px;
 .classifications a{
     margin: 10px;
 }
-
+/*estilos para sección moviesByClassification*/
+.moviesByClasification{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+.moviesByClasificationContainer>h3{
+    margin: 10px auto;
+    font-size: 5rem;
+}
+.moviesByClasificationContainer h1{
+    color: white;
+}
+.movieByCategoryContainer{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: auto;
+    margin: 10px;
+}
+.movieByCategoryContainer span,
+p{
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: var(--secondaryText);
+    color:white;
+    margin-bottom:10px;
+}
+.movieByCategoryContainer h3{
+    color: red;
+    font-size: 3rem;
+}
 /*estilos para footer*/
 footer{
     display: flex;

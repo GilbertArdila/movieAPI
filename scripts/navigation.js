@@ -1,8 +1,6 @@
 //creating function to detecte the page location
 function navigator(){
-    console.log({
-        location
-    })
+  
 
     if(location.hash.startsWith('#trends')){
         trendsPage()
@@ -52,12 +50,34 @@ function homePage(){
     recomendationsContainer.classList.remove("hidden");
     continueWatchingContainer.classList.remove("hidden");
     similarsContainer.classList.remove("hidden");
+    moviesByClasificationContainer.classList.add("hidden");
 }
 
 
 function categoryPage(){
-    console.log("Categories")
+    classificationsContainer.classList.remove("hidden");
+    moviesByClasificationContainer.classList.remove("hidden");
+
+    newMovies.classList.add("hidden");
+    studios.classList.add("hidden");
+    newContainer.classList.add("hidden");
+    commingSoonContainer.classList.add("hidden");
+    recomendationsContainer.classList.add("hidden");
+    continueWatchingContainer.classList.add("hidden");
+    similarsContainer.classList.add("hidden");
+    
+    
+    //getting the selected category id and name
+    let url=location.hash.split('=')
+    url=url[1].split('-')
+    let id=url[0]
+    let name=url[1]
+    console.log({
+      id,name
+    })
+    getMoviesBycategory(id,name)
 }
+
 function moviePage(){
     console.log("Movie")
 }
@@ -79,6 +99,7 @@ function myListPage(){
     newContainer.classList.add("hidden");
     commingSoonContainer.classList.add("hidden");
     similarsContainer.classList.add("hidden");
+    moviesByClasificationContainer.classList.add("hidden");
 }
 function moviesPage(){
     //showing sections
@@ -92,6 +113,7 @@ function moviesPage(){
     recomendationsContainer.classList.add("hidden");
     continueWatchingContainer.classList.add("hidden");
     similarsContainer.classList.add("hidden");
+    moviesByClasificationContainer.classList.add("hidden");
 
 }
 
