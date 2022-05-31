@@ -19,10 +19,13 @@
         </section>
         <section class="header-links
         ">
-        <a href="#" class="header-links__home">Inicio<img src="./images/home.webp" alt="home"></a>
-        <a href="#"  class="header-links__search">Buscar<img src="./images/search.webp" alt="search"></a>
-        <a href="#"  class="header-links__myList">Mi lista<img src="./images/plus.webp" alt="my list"></a>
-        <a href="#"  class="header-links__movies">Peliculas<img src="./images/movies.webp" alt="movies"></a>
+        <a href="#home" class="header-links__home">Inicio<img src="./images/home.webp" alt="home"></a>
+
+        <a href="#search="  class="header-links__search">Buscar<img src="./images/search.webp" alt="search"></a>
+
+        <a href="#myList"  class="header-links__myList">Mi lista<img src="./images/plus.webp" alt="my list"></a>
+
+        <a href="#peliculas"  class="header-links__movies">Peliculas<img src="./images/movies.webp" alt="movies"></a>
        
     </section>
 
@@ -78,7 +81,7 @@
             
         </section>
 
-        <div class="sectionContainer">
+        <div class="sectionContainer recomendationsContainer">
             <h3 class="section-title">Recomendaciones para ti</h3>
             <section class="recomendations ">
             
@@ -93,14 +96,14 @@
 
         </div>
        
-        <div class="sectionContainer">
+        <div class="sectionContainer newContainer">
             <h3 class="section-title"> Nuevos titulos</h3>
             <section class="new">
                 
             </section>
         </div>
        
-        <div class="sectionContainer">
+        <div class="sectionContainer continueWatchingContainer">
             <h3 class="section-title">Continúa viendo</h3>
             <section class="continueWatching">
                 <div class="continueWatching-container container"></div>
@@ -112,7 +115,7 @@
             </section>
             </div>
 
-        <div class="sectionContainer">
+        <div class="sectionContainer similarsContainer">
             <h3 class="section-title">Titúlos similares</h3>
             <section class="similars">
                 <div class="similars-container container"></div>
@@ -124,7 +127,7 @@
             </section>
         </div>
        
-        <div class="sectionContainer">
+        <div class="sectionContainer commingSoonContainer">
             <h3 class="section-title">Próximamente</h3>
             <section class="commingSoon">
                 <div class="commingSoon-container container"></div>
@@ -136,20 +139,10 @@
             </section>
         </div>
         
-        <div class="sectionContainer">
+        <div class="sectionContainer classificationsContainer">
             <h3 class="section-title">Clasificación</h3>
             <section class="classifications">
-               <a href="#" class="classifications-link">
-                   <h3>Animadas</h3>
-               </a><a href="#" class="classifications-link">
-                   <h3>Ciencia ficción</h3>
-               </a><a href="#" class="classifications-link">
-                   <h3>Westerm</h3>
-               </a><a href="#" class="classifications-link">
-                   <h3>Acción</h3>
-               </a><a href="#" class="classifications-link">
-                   <h3>Terror</h3>
-               </a>
+               
             </section>
         </div>
         
@@ -168,9 +161,13 @@
 
 
 
+<!--Script to axios-->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!--Script to js-->
 
-
-    <script src="../movieAPI/scripts/personal.js"></script>
-    <script src="../movieAPI/scripts/main.js"></script>
+    <script src="./scripts/personal.js"></script>
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/navigation.js"></script>
+    <script src="./scripts/nodes.js"></script>
 </body>
 </html>
