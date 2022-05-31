@@ -51,6 +51,9 @@ header section{
    
    
 }
+.header-searcher input{
+    margin: 0 5px;
+}
 main section .container{
     display: flex;
     justify-content: center;
@@ -75,7 +78,8 @@ header section a{
     align-items: center;
 }
 header .header-links img,
-.header-profile img{
+.header-profile img,
+.header-searcher img{
     width: 60px;
 }
 .header-profile p{

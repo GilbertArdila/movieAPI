@@ -1,7 +1,14 @@
 //creating function to detecte the page location
-function navigator(){
-  
 
+header_links__search.addEventListener('click',()=>{
+    const busqueda=header_searcher__input.value;
+    location.hash='#search='+busqueda;
+    
+   
+    
+    
+})
+function navigator(){
     if(location.hash.startsWith('#trends')){
         trendsPage()
     }
@@ -23,7 +30,9 @@ function navigator(){
     else{
        homePage();
     }
-   
+    //to avoid botton scroll when change location.hash
+   document.documentElement.scrollTop=0;
+   document.body.scrollTop=0;
 }
 
 function homePage(){
@@ -46,7 +55,6 @@ function homePage(){
     newContainer.classList.remove("hidden");
     classificationsContainer.classList.remove("hidden");
     commingSoonContainer.classList.remove("hidden");
-    //hiddin sections
     recomendationsContainer.classList.remove("hidden");
     continueWatchingContainer.classList.remove("hidden");
     similarsContainer.classList.remove("hidden");
@@ -72,9 +80,7 @@ function categoryPage(){
     url=url[1].split('-')
     let id=url[0]
     let name=url[1]
-    console.log({
-      id,name
-    })
+   
     getMoviesBycategory(id,name)
 }
 
@@ -82,7 +88,22 @@ function moviePage(){
     console.log("Movie")
 }
 function searchPage(){
-    console.log("Search")
+    newMovies.classList.remove("hidden");
+    studios.classList.add("hidden");
+    newContainer.classList.add("hidden");
+    classificationsContainer.classList.add("hidden");
+    commingSoonContainer.classList.add("hidden");
+    //hiddin sections
+    recomendationsContainer.classList.add("hidden");
+    continueWatchingContainer.classList.add("hidden");
+    similarsContainer.classList.add("hidden");
+    moviesByClasificationContainer.classList.remove("hidden");
+
+    const url=location.hash.split('=');
+    const query=url[1];
+   
+    getMovieBySearch(query)
+    
 }
 function trendsPage(){
     console.log("Trends")
