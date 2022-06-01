@@ -3,7 +3,7 @@
 header_links__search.addEventListener('click',()=>{
     const busqueda=header_searcher__input.value;
     location.hash='#search='+busqueda;
-    
+    header_searcher__input.value="";
    
     
     
@@ -21,11 +21,12 @@ function navigator(){
     else if(location.hash.startsWith('#category=')){
         categoryPage()
     }
-    else if(location.hash.startsWith('#myList')){
-        myListPage()
+    else if(location.hash.startsWith('#popular')){
+        popularMovies()
     }
-    else if(location.hash.startsWith('#peliculas')){
-        moviesPage()
+    else if(location.hash.startsWith('#tendencias')){
+        trendingMovies()
+        
     }
     else{
        homePage();
@@ -34,34 +35,41 @@ function navigator(){
    document.documentElement.scrollTop=0;
    document.body.scrollTop=0;
 }
+function trendsPage(){
+    console.log("Trends")
+}
+function moviePage(){
+    console.log("Movie")
+}
+function popularMovies(){
+    newMovies.classList.add("hidden");
+    studios.classList.add("hidden");
+    newContainer.classList.add("hidden");
+    classificationsContainer.classList.remove("hidden");
+    commingSoonContainer.classList.add("hidden");
+   
+    moviesByClasificationContainer.classList.remove("hidden");
+   
+    getPopularMovies()
+}
 
+//ya creadas
 function homePage(){
     getTrendingMoviesPreview()
     categoriesPreview()
-    //showing sections
-    // newMovies.classList.remove("hidden");
-    // studios.classList.remove("hidden");
-    // newContainer.classList.remove("hidden");
-    // classificationsContainer.classList.remove("hidden");
-    // commingSoonContainer.classList.remove("hidden");
-    // //hiddin sections
-    // recomendationsContainer.classList.add("hidden");
-    // continueWatchingContainer.classList.add("hidden");
-    // similarsContainer.classList.add("hidden");
-
-    //temporal
+    getUpcommingMoviesPreview()
+    getTopRatedMovies()
+   // showing sections
     newMovies.classList.remove("hidden");
     studios.classList.remove("hidden");
     newContainer.classList.remove("hidden");
     classificationsContainer.classList.remove("hidden");
     commingSoonContainer.classList.remove("hidden");
-    recomendationsContainer.classList.remove("hidden");
-    continueWatchingContainer.classList.remove("hidden");
-    similarsContainer.classList.remove("hidden");
-    moviesByClasificationContainer.classList.add("hidden");
+    
+    
+
+   
 }
-
-
 function categoryPage(){
     classificationsContainer.classList.remove("hidden");
     moviesByClasificationContainer.classList.remove("hidden");
@@ -83,20 +91,13 @@ function categoryPage(){
    
     getMoviesBycategory(id,name)
 }
-
-function moviePage(){
-    console.log("Movie")
-}
 function searchPage(){
-    newMovies.classList.remove("hidden");
+    newMovies.classList.add("hidden");
     studios.classList.add("hidden");
     newContainer.classList.add("hidden");
-    classificationsContainer.classList.add("hidden");
+    classificationsContainer.classList.remove("hidden");
     commingSoonContainer.classList.add("hidden");
-    //hiddin sections
-    recomendationsContainer.classList.add("hidden");
-    continueWatchingContainer.classList.add("hidden");
-    similarsContainer.classList.add("hidden");
+  
     moviesByClasificationContainer.classList.remove("hidden");
 
     const url=location.hash.split('=');
@@ -105,36 +106,19 @@ function searchPage(){
     getMovieBySearch(query)
     
 }
-function trendsPage(){
-    console.log("Trends")
-}
-function myListPage(){
-    //showing sections
-    newMovies.classList.remove("hidden");
-    studios.classList.remove("hidden");
-    recomendationsContainer.classList.remove("hidden");
-    continueWatchingContainer.classList.remove("hidden");
-    classificationsContainer.classList.remove("hidden");
 
-    //hiddin sections
-    newContainer.classList.add("hidden");
-    commingSoonContainer.classList.add("hidden");
-    similarsContainer.classList.add("hidden");
-    moviesByClasificationContainer.classList.add("hidden");
-}
-function moviesPage(){
-    //showing sections
+function trendingMovies(){
    
-    commingSoonContainer.classList.remove("hidden");
-    classificationsContainer.classList.remove("hidden");
-    newContainer.classList.remove("hidden");
-    studios.classList.remove("hidden");
-            //hiddin sections
     newMovies.classList.add("hidden");
-    recomendationsContainer.classList.add("hidden");
-    continueWatchingContainer.classList.add("hidden");
-    similarsContainer.classList.add("hidden");
-    moviesByClasificationContainer.classList.add("hidden");
+    studios.classList.add("hidden");
+    newContainer.classList.add("hidden");
+    classificationsContainer.classList.add("hidden");
+    commingSoonContainer.classList.add("hidden");
+    //hiddin sections
+ 
+    moviesByClasificationContainer.classList.remove("hidden");
+
+     getTrendingMovies();
 
 }
 
