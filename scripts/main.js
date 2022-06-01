@@ -25,6 +25,7 @@ async function getTrendingMoviesPreview(){
   movies.map(movie=>{
    
     const div=document.createElement("div");
+
     div.classList.add("new-container");
     div.classList.add("container");
     const img=document.createElement("img");
@@ -38,7 +39,10 @@ async function getTrendingMoviesPreview(){
    
     movieContainer.appendChild(div);
     
+    
+    
   })
+ 
  
 }
 
@@ -47,19 +51,7 @@ async function categoriesPreview(){
   const categories=data.genres;
   //createMovies(categories, section)
   section.innerHTML="";
-  categories.map(category=>{
-   
-    const a=document.createElement("a");
-    a.classList.add("classifications-link");
-    a.setAttribute("href",'#category='+category.id+'-'+category.name)
-    const h3=document.createElement("h3");
-    h3.classList.add("id",category.id)
-    h3.innerText='>'+category.name;
-    a.appendChild(h3)
-    section.appendChild(a);
-  })
-
-
+  createPreviewMovies(section,categories);
 
 }
 async function getMoviesBycategory(id,name){
@@ -115,7 +107,7 @@ async function getMovieBySearch(query){
 async function getTrendingMovies(){
   const {data}= await API('trending/movie/day')
   const movies=data.results;
-  section_title.innerHTML='Peliculas en tendencia'
+  section_title.innerHTML='Nuevas películas'
   createMovies(moviesByClasification,movies)
  
 }
@@ -153,11 +145,11 @@ async function getUpcommingMoviesPreview(){
 async function getTopRatedMovies(){
   const {data}=await API('/movie/top_rated');
   const movies=data.results
-  console.log(movies)
  
   topRatedMovies.innerHTML="";
   movies.map(movie=>{
     const div=document.createElement("div");
+
     div.classList.add("topMovie-container");
     const img=document.createElement("img");
     img.setAttribute("alt",movie.title);
@@ -169,11 +161,13 @@ async function getTopRatedMovies(){
     div.appendChild(img);
     div.appendChild(p);
     topRatedMovies.appendChild(div);
+
+    
   })
 
 }
 
-
+//functions to create movies
 function createMovies(container,movies){
   container.innerHTML="";
 
@@ -205,4 +199,17 @@ function createMovies(container,movies){
     
 })
 }
-
+function createPreviewMovies(container,movies){
+ 
+  movies.map(movie=>{
+   
+    const a=document.createElement("a");
+    a.classList.add("classifications-link");
+    a.setAttribute("href",'#category='+movie.id+'-'+movie.name)
+    const h3=document.createElement("h3");
+    h3.classList.add("id",movie.id)
+    h3.innerText='>'+movie.name;
+    a.appendChild(h3)
+    container.appendChild(a);
+  })
+}

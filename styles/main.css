@@ -112,13 +112,41 @@ main section{
     overflow-x: scroll;
     overflow-y: hidden;
     overscroll-behavior-x: contain;
+    margin: 20px auto;
+    background-color: var(--mainGrey);
     /* scroll-snap-type: x proximity;
     */
 }
 .newMovies .newMovies-container{
     display:flex;
     scroll-snap-align: center;
-    width: 70%;
+    width: 100%;
+    height: 100%;
+}
+
+.new-container p{
+    margin: 10px auto;
+    font-size: 2rem;
+    font-family: var(--secondaryText);
+   color: var(--whiteTextColor);
+}
+.topMovie-container{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    
+}
+.newMovies .newMovies-container
+.topMovie-container img{
+    width: 400px;
+    height: 100%;
+    opacity: 0.7;
+}
+.topMovie-container p{
+    position: absolute;
+    top: calc(10%);
+    left: calc(20%);
+    color: var(--whiteTextColor);
 }
 
 .tituloPelicula{
@@ -158,18 +186,23 @@ main section{
 }
 .studios .disney:hover{
     content: url('../images/disney_fondo.jfif');
+    cursor:auto;
 }
 .studios .pixar:hover{
     content: url('../images/pixar_fondo.jfif');
+    cursor:auto;
 }
 .studios .marvel:hover{
     content: url('../images/marvel_fondo.jfif');
+    cursor:auto;
 }
 .studios .starWars:hover{
     content: url('../images/starWars_fondo.jfif');
+    cursor:auto;
 }
 .studios .natgeo:hover{
     content: url('../images/natgeo_fondo.jfif');
+    cursor:auto;
 }
 
 /*estilos para sección recomendations*/
@@ -212,12 +245,6 @@ main section{
     width: 300px;
     height: 450px;
     margin: 0 10px;
-}
-.new-container p{
-    margin: 10px auto;
-    font-size: 2rem;
-    font-family: var(--secondaryText);
-   color: var(--whiteTextColor);
 }
 
 
@@ -264,7 +291,7 @@ p{
     margin-bottom:10px;
 }
 .movieByCategoryContainer h3{
-    color: red;
+    color: var(--mainBlue);
     font-size: 3rem;
 }
 /*estilos para footer*/

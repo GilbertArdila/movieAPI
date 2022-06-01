@@ -59,12 +59,14 @@ function homePage(){
     categoriesPreview()
     getUpcommingMoviesPreview()
     getTopRatedMovies()
+   
    // showing sections
     newMovies.classList.remove("hidden");
     studios.classList.remove("hidden");
     newContainer.classList.remove("hidden");
     classificationsContainer.classList.remove("hidden");
     commingSoonContainer.classList.remove("hidden");
+    moviesByClasificationContainer.classList.add("hidden");
     
     
 
@@ -78,10 +80,7 @@ function categoryPage(){
     studios.classList.add("hidden");
     newContainer.classList.add("hidden");
     commingSoonContainer.classList.add("hidden");
-    recomendationsContainer.classList.add("hidden");
-    continueWatchingContainer.classList.add("hidden");
-    similarsContainer.classList.add("hidden");
-    
+   
     
     //getting the selected category id and name
     let url=location.hash.split('=')
