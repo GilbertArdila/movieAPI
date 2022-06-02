@@ -9,10 +9,8 @@ header_links__search.addEventListener('click',()=>{
     
 })
 function navigator(){
-    if(location.hash.startsWith('#trends')){
-        trendsPage()
-    }
-    else if(location.hash.startsWith('#search=')){
+    
+     if(location.hash.startsWith('#search=')){
         searchPage()
     }
     else if(location.hash.startsWith('#movie=')){
@@ -35,9 +33,7 @@ function navigator(){
    document.documentElement.scrollTop=0;
    document.body.scrollTop=0;
 }
-function trendsPage(){
-    console.log("Trends")
-}
+
 function moviePage(){
     console.log("Movie")
 }

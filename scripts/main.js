@@ -55,6 +55,19 @@ async function categoriesPreview(){
 
 }
 async function getMoviesBycategory(id,name){
+  //split to avoid spaces
+  name=name.split("%20");
+  //join again in one word
+  name=name.join(" ")
+  //replace accents
+  name.includes('%C3%B3') ? name= name.replace('%C3%B3','ó'):
+  name.includes('%C3%A9') ?  name= name.replace('%C3%A9','é'):
+  name.includes('%C3%AD') ?  name= name.replace('%C3%AD','í'):
+  name.includes('%C3%BA') ?  name= name.replace('%C3%BA','ú'): name=name;
+
+
+  
+  
   const {data}= await API('discover/movie',{
    params:{
      with_genres:id
@@ -65,7 +78,7 @@ async function getMoviesBycategory(id,name){
   moviesByClasification.innerHTML="";
  
   
-  section_title.innerHTML='Peliculas de '+name
+  section_title.innerHTML='Categoría: '+name
 
   movies.map(movie=>{
     const div=document.createElement("div");
