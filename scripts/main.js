@@ -28,7 +28,6 @@ async function getTrendingMoviesPreview(){
 
     div.addEventListener("click",function(){
       location.hash="#movie="+movie.id;
-      console.log(location.hash);
     })
 
     div.classList.add("new-container");
@@ -175,10 +174,11 @@ async function  getMovieById(id){
   //has not an array as an answer
   const {data:movie}= await API('movie/'+id)
   
-
+  const section_title=document.querySelector(".commingSoonContainer .section-title");
   section_title.innerText=movie.title
-  moviesByClasification.innerHTML=""
-  moviesByClasification.setAttribute("width",("100%"))
+  commingSoon.innerHTML=""
+  commingSoon.classList.add("movie")
+ 
  
     const div=document.createElement("div");
     div.classList.add("movieByCategoryContainer");
@@ -202,10 +202,27 @@ async function  getMovieById(id){
     div.appendChild(p);
 
     
-    moviesByClasification.appendChild(div);
+    commingSoon.appendChild(div);
     
-  
+    relatedMovies(id)
 
+}
+
+async function relatedMovies(id){
+
+  const {data}= await API('movie/'+id+'/recommendations')
+ // const {data2}=await API('movie/'+id+'/similar')
+  const movies=data.results;
+  //const movies2=data2.results;
+  console.log(movies.length);
+  //moviesByClasification.innerHTML=""
+  section_title.innerText='Recomendadas'
+  if(movies.length<=0){
+    section_title.innerText='Lo sentimos no tenemos recomendaciones para este título'
+
+  }else{
+  createMovies(moviesByClasification,movies)
+  }
 }
 
 //functions to create movies

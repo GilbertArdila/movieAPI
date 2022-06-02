@@ -103,6 +103,12 @@ main section{
     margin: 0 auto;
     margin-bottom: 10px;
 }
+/*para los títulos de las secciones*/
+.section-title{
+margin: 20px auto;
+font-size: 3rem;
+font-family: var(--mainText);
+}
 /*estilos para sección newMovies*/
 .newMovies{
     position: relative;
@@ -227,6 +233,9 @@ main section{
     overflow-y: hidden;
     overscroll-behavior-x: contain;
     /* scroll-snap-type: x proximity; */
+}
+.movie{
+    overflow-x: hidden;
 }
 .new .new-container,
 .commingSoon .commingSoon-container{

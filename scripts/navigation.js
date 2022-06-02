@@ -38,13 +38,12 @@ function moviePage(){
     newMovies.classList.add("hidden");
     studios.classList.add("hidden");
     newContainer.classList.add("hidden");
-    commingSoonContainer.classList.add("hidden");
+    commingSoonContainer.classList.remove("hidden");
 
     classificationsContainer.classList.remove("hidden");
     moviesByClasificationContainer.classList.remove("hidden");
 
     const URL=location.hash.split("=")
-    console.log(URL[1])
     getMovieById(URL[1]);
 }
 function popularMovies(){
