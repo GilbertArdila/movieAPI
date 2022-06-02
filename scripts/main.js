@@ -26,6 +26,11 @@ async function getTrendingMoviesPreview(){
    
     const div=document.createElement("div");
 
+    div.addEventListener("click",function(){
+      location.hash="#movie="+movie.id;
+      console.log(location.hash);
+    })
+
     div.classList.add("new-container");
     div.classList.add("container");
     const img=document.createElement("img");
@@ -65,9 +70,6 @@ async function getMoviesBycategory(id,name){
   name.includes('%C3%AD') ?  name= name.replace('%C3%AD','í'):
   name.includes('%C3%BA') ?  name= name.replace('%C3%BA','ú'): name=name;
 
-
-  
-  
   const {data}= await API('discover/movie',{
    params:{
      with_genres:id
@@ -76,32 +78,10 @@ async function getMoviesBycategory(id,name){
   const movies=data.results;
 
   moviesByClasification.innerHTML="";
- 
   
   section_title.innerHTML='Categoría: '+name
 
-  movies.map(movie=>{
-    const div=document.createElement("div");
-    div.classList.add("movieByCategoryContainer");
-    const span=document.createElement("span");
-    span.innerHTML='Calificación '+movie.vote_average;
-    const img=document.createElement("img");
-    img.setAttribute("alt",movie.title);
-    img.setAttribute('src','https://image.tmdb.org/t/p/w300'+movie.poster_path);
-    const h3=document.createElement("h3");
-    h3.innerHTML=movie.title;
-    const p=document.createElement("p");
-    p.innerHTML=movie.overview;
-    div.appendChild(span);
-    div.appendChild(img);
-    div.appendChild(h3);
-    div.appendChild(p);
-    moviesByClasification.appendChild(div);
-  })
- 
-
-  
-  
+  createMovies(moviesByClasification,movies)
 }
 
 async function getMovieBySearch(query){
@@ -139,6 +119,12 @@ async function getUpcommingMoviesPreview(){
   movies.map(movie=>{
    
     const div=document.createElement("div");
+
+    div.addEventListener("click",function(){
+      location.hash="#movie="+movie.id;
+      
+    })
+
     div.classList.add("commingSoon-container");
     div.classList.add("container");
     const img=document.createElement("img");
@@ -163,6 +149,11 @@ async function getTopRatedMovies(){
   movies.map(movie=>{
     const div=document.createElement("div");
 
+    div.addEventListener("click",function(){
+      location.hash="#movie="+movie.id;
+      
+    })
+
     div.classList.add("topMovie-container");
     const img=document.createElement("img");
     img.setAttribute("alt",movie.title);
@@ -180,22 +171,25 @@ async function getTopRatedMovies(){
 
 }
 
-//functions to create movies
-function createMovies(container,movies){
-  container.innerHTML="";
+async function  getMovieById(id){
+  //has not an array as an answer
+  const {data:movie}= await API('movie/'+id)
+  
 
-
-  movies.map(movie=>{
-    if(movie.poster_path!=null && movie.adult===false){
+  section_title.innerText=movie.title
+  moviesByClasification.innerHTML=""
+  moviesByClasification.setAttribute("width",("100%"))
+ 
     const div=document.createElement("div");
     div.classList.add("movieByCategoryContainer");
+    div.classList.add("movieByIdContainer");
+
     const span=document.createElement("span");
     span.innerHTML='Calificación '+movie.vote_average;
     const img=document.createElement("img");
     img.setAttribute("alt",movie.title);
-    img.setAttribute('src','https://image.tmdb.org/t/p/original'+movie.poster_path);
-    const h3=document.createElement("h3");
-    h3.innerHTML=movie.title;
+    img.setAttribute('src','https://image.tmdb.org/t/p/original'+movie.backdrop_path);
+    
     const p=document.createElement("p");
     if(movie.overview!=""){
       p.innerHTML=movie.overview;
@@ -205,8 +199,40 @@ function createMovies(container,movies){
    
     div.appendChild(span);
     div.appendChild(img);
-    div.appendChild(h3);
     div.appendChild(p);
+
+    
+    moviesByClasification.appendChild(div);
+    
+  
+
+}
+
+//functions to create movies
+function createMovies(container,movies){
+  container.innerHTML="";
+
+
+  movies.map(movie=>{
+    if(movie.poster_path!=null && movie.adult===false){
+    const div=document.createElement("div");
+
+    div.addEventListener("click",function(){
+      location.hash="#movie="+movie.id;
+      
+    })
+
+    div.classList.add("movieByCategoryContainer");
+    const span=document.createElement("span");
+    span.innerHTML='Calificación '+movie.vote_average;
+    const img=document.createElement("img");
+    img.setAttribute("alt",movie.title);
+    img.setAttribute('src','https://image.tmdb.org/t/p/original'+movie.poster_path);
+    
+   
+    div.appendChild(span);
+    div.appendChild(img);
+   
     container.appendChild(div);
     }
     
@@ -217,6 +243,12 @@ function createPreviewMovies(container,movies){
   movies.map(movie=>{
    
     const a=document.createElement("a");
+
+    a.addEventListener("click",function(){
+      location.hash="#movie="+movie.id;
+      
+    })
+
     a.classList.add("classifications-link");
     a.setAttribute("href",'#category='+movie.id+'-'+movie.name)
     const h3=document.createElement("h3");

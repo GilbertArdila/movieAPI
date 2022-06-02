@@ -282,6 +282,12 @@ padding: 10px;
     height: auto;
     margin: 10px;
 }
+.movieByIdContainer{
+   
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+}
 .movieByCategoryContainer span,
 p{
     font-size: 2rem;

@@ -35,7 +35,17 @@ function navigator(){
 }
 
 function moviePage(){
-    console.log("Movie")
+    newMovies.classList.add("hidden");
+    studios.classList.add("hidden");
+    newContainer.classList.add("hidden");
+    commingSoonContainer.classList.add("hidden");
+
+    classificationsContainer.classList.remove("hidden");
+    moviesByClasificationContainer.classList.remove("hidden");
+
+    const URL=location.hash.split("=")
+    console.log(URL[1])
+    getMovieById(URL[1]);
 }
 function popularMovies(){
     newMovies.classList.add("hidden");
