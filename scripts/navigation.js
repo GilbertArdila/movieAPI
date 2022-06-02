@@ -38,10 +38,11 @@ function moviePage(){
     newMovies.classList.add("hidden");
     studios.classList.add("hidden");
     newContainer.classList.add("hidden");
-    commingSoonContainer.classList.remove("hidden");
+    commingSoonContainer.classList.add("hidden");
 
-    classificationsContainer.classList.remove("hidden");
+    classificationsContainer.classList.add("hidden");
     moviesByClasificationContainer.classList.remove("hidden");
+    movieDetailContainer.classList.remove("hidden");
 
     const URL=location.hash.split("=")
     getMovieById(URL[1]);
@@ -52,6 +53,7 @@ function popularMovies(){
     newContainer.classList.add("hidden");
     classificationsContainer.classList.remove("hidden");
     commingSoonContainer.classList.add("hidden");
+    movieDetailContainer.classList.add("hidden");
    
     moviesByClasificationContainer.classList.remove("hidden");
    
@@ -71,6 +73,7 @@ function homePage(){
     classificationsContainer.classList.remove("hidden");
     commingSoonContainer.classList.remove("hidden");
     moviesByClasificationContainer.classList.add("hidden");
+    movieDetailContainer.classList.add("hidden");
     
     
 
@@ -84,6 +87,7 @@ function categoryPage(){
     studios.classList.add("hidden");
     newContainer.classList.add("hidden");
     commingSoonContainer.classList.add("hidden");
+    movieDetailContainer.classList.add("hidden");
    
     
     //getting the selected category id and name
@@ -100,7 +104,8 @@ function searchPage(){
     newContainer.classList.add("hidden");
     classificationsContainer.classList.remove("hidden");
     commingSoonContainer.classList.add("hidden");
-  
+    movieDetailContainer.classList.add("hidden");
+
     moviesByClasificationContainer.classList.remove("hidden");
 
     const url=location.hash.split('=');
@@ -117,7 +122,7 @@ function trendingMovies(){
     newContainer.classList.add("hidden");
     classificationsContainer.classList.add("hidden");
     commingSoonContainer.classList.add("hidden");
-    //hiddin sections
+    movieDetailContainer.classList.add("hidden");
  
     moviesByClasificationContainer.classList.remove("hidden");
 

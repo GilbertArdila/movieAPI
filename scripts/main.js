@@ -115,6 +115,7 @@ async function getUpcommingMoviesPreview(){
   const {data}=await API('/movie/upcoming');
   const movies=data.results;
   commingSoon.innerHTML="";
+  section_title.innerHTML="Proximamente"
   movies.map(movie=>{
    
     const div=document.createElement("div");
@@ -174,10 +175,10 @@ async function  getMovieById(id){
   //has not an array as an answer
   const {data:movie}= await API('movie/'+id)
   
-  const section_title=document.querySelector(".commingSoonContainer .section-title");
+  const section_title=document.querySelector(".movieDetailContainer .section-title");
   section_title.innerText=movie.title
-  commingSoon.innerHTML=""
-  commingSoon.classList.add("movie")
+  movieDetail.innerHTML=""
+  movieDetail.classList.add("movie")
  
  
     const div=document.createElement("div");
@@ -202,7 +203,7 @@ async function  getMovieById(id){
     div.appendChild(p);
 
     
-    commingSoon.appendChild(div);
+    movieDetail.appendChild(div);
     
     relatedMovies(id)
 
