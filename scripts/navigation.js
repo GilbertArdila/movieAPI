@@ -58,7 +58,6 @@ function popularMovies(){
     getPopularMovies()
 }
 
-//ya creadas
 function homePage(){
     getTrendingMoviesPreview()
     categoriesPreview()

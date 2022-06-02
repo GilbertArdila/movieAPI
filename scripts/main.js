@@ -211,12 +211,9 @@ async function  getMovieById(id){
 async function relatedMovies(id){
 
   const {data}= await API('movie/'+id+'/recommendations')
- // const {data2}=await API('movie/'+id+'/similar')
   const movies=data.results;
-  //const movies2=data2.results;
-  console.log(movies.length);
-  //moviesByClasification.innerHTML=""
   section_title.innerText='Recomendadas'
+  //checking if there is not related movies
   if(movies.length<=0){
     section_title.innerText='Lo sentimos no tenemos recomendaciones para este título'
 
