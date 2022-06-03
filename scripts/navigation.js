@@ -39,8 +39,8 @@ function moviePage(){
     studios.classList.add("hidden");
     newContainer.classList.add("hidden");
     commingSoonContainer.classList.add("hidden");
-
     classificationsContainer.classList.add("hidden");
+    
     moviesByClasificationContainer.classList.remove("hidden");
     movieDetailContainer.classList.remove("hidden");
 

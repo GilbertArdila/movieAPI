@@ -303,7 +303,7 @@ padding: 10px;
     flex-direction: column;
     width: 300px;
     height: auto;
-    margin: 10px;
+    margin: 10px auto;
 }
 .movieByIdContainer{
    

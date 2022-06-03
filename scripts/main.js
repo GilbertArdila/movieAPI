@@ -147,6 +147,7 @@ async function getTopRatedMovies(){
  
   topRatedMovies.innerHTML="";
   movies.map(movie=>{
+   
     const div=document.createElement("div");
 
     div.addEventListener("click",function(){
@@ -157,8 +158,15 @@ async function getTopRatedMovies(){
     div.classList.add("topMovie-container");
     const img=document.createElement("img");
     img.setAttribute("alt",movie.title);
+    if(movie.backdrop_path===null){
+      
+      img.setAttribute("src","https://image.tmdb.org/t/p/original"
+    +movie.poster_path);
+      
+    }else{
     img.setAttribute("src","https://image.tmdb.org/t/p/original"
     +movie.backdrop_path);
+    }
     const p=document.createElement("p");
     const pText=document.createTextNode(movie.title);
     p.appendChild(pText);
@@ -174,7 +182,7 @@ async function getTopRatedMovies(){
 async function  getMovieById(id){
   //has not an array as an answer
   const {data:movie}= await API('movie/'+id)
-  
+  console.log(movie)
   const section_title=document.querySelector(".movieDetailContainer .section-title");
   section_title.innerText=movie.title
   movieDetail.innerHTML=""
@@ -189,7 +197,12 @@ async function  getMovieById(id){
     span.innerHTML='Calificación '+movie.vote_average;
     const img=document.createElement("img");
     img.setAttribute("alt",movie.title);
-    img.setAttribute('src','https://image.tmdb.org/t/p/original'+movie.backdrop_path);
+    if(movie.backdrop_path===null){
+      img.setAttribute('src','https://image.tmdb.org/t/p/original'+movie.poster_path);
+    }else{
+      img.setAttribute('src','https://image.tmdb.org/t/p/original'+movie.backdrop_path);
+    }
+    
     
     const p=document.createElement("p");
     if(movie.overview!=""){
