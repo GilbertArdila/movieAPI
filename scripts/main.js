@@ -239,6 +239,7 @@ async function relatedMovies(id){
 //functions to create movies
 function createMovies(container,movies){
   container.innerHTML="";
+ 
 
 
   movies.map(movie=>{
@@ -267,7 +268,8 @@ function createMovies(container,movies){
 })
 }
 function createPreviewMovies(container,movies){
- 
+      container.innerHTML="";
+    
   movies.map(movie=>{
    
     const a=document.createElement("a");

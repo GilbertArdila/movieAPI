@@ -65,6 +65,7 @@ function homePage(){
     categoriesPreview()
     getUpcommingMoviesPreview()
     getTopRatedMovies()
+    
    
    // showing sections
     newMovies.classList.remove("hidden");

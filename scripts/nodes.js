@@ -19,3 +19,4 @@ const movieContainer=document.querySelector(".new");
 const section_title=document.querySelector(".moviesByClasificationContainer .section-title");
 const commingSoon=document.querySelector(".commingSoon");
 
+const loading=document.querySelectorAll(".estudios-container--loading");
