@@ -291,6 +291,10 @@ padding: 10px;
     height: auto;
     text-align: center;
 }
+.moviesByClasification img{
+  width: 100%;
+  min-height: 200px;
+}
 .moviesByClasificationContainer>h3{
     margin: 10px auto;
     font-size: 5rem;

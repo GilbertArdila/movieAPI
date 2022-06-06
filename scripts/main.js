@@ -201,8 +201,12 @@ async function  getMovieById(id){
     img.setAttribute("alt",movie.title);
     if(movie.backdrop_path===null){
       img.setAttribute('src','https://image.tmdb.org/t/p/original'+movie.poster_path);
-    }else{
+    }
+    else if(movie.backdrop_path===null && movie.poster_path===null){
       img.setAttribute('src','https://image.tmdb.org/t/p/original'+movie.backdrop_path);
+    }
+    else{
+      img.setAttribute('src','https://image.tmdb.org/t/p/original'+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb-j5czZKCBg2Og1We4HoVkt-YBX8dwiz_kQ&usqp=CAU');
     }
     
     
@@ -241,6 +245,7 @@ async function relatedMovies(id){
 //utils
 const lazyLoader= new IntersectionObserver((entries)=>{
    entries.forEach((entry)=>{
+    
     if(entry.isIntersecting){
      const url=entry.target.getAttribute('data-img');
      entry.target.setAttribute('src',url)
