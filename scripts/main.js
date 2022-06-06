@@ -34,7 +34,8 @@ async function getTrendingMoviesPreview(){
     div.classList.add("container");
     const img=document.createElement("img");
     img.setAttribute("alt",movie.title);
-    img.setAttribute("src",'https://image.tmdb.org/t/p/w300/'+movie.poster_path);
+    img.setAttribute("data-img",'https://image.tmdb.org/t/p/w300/'+movie.poster_path);
+    lazyLoader.observe(img)
    
     const p=document.createElement("p");
     p.innerText=movie.original_title;
@@ -129,7 +130,8 @@ async function getUpcommingMoviesPreview(){
     div.classList.add("container");
     const img=document.createElement("img");
     img.setAttribute("alt",movie.title);
-    img.setAttribute("src",'https://image.tmdb.org/t/p/w300/'+movie.poster_path);
+    img.setAttribute("data-img",'https://image.tmdb.org/t/p/w300/'+movie.poster_path);
+    lazyLoader.observe(img)
    
     const p=document.createElement("p");
     p.innerText=movie.original_title;
@@ -160,9 +162,9 @@ async function getTopRatedMovies(){
     img.setAttribute("alt",movie.title);
     if(movie.backdrop_path===null){
       
-      img.setAttribute("src","https://image.tmdb.org/t/p/original"
+      img.setAttribute("data-img","https://image.tmdb.org/t/p/original"
     +movie.poster_path);
-      
+      lazyLoader.observe(img)
     }else{
     img.setAttribute("src","https://image.tmdb.org/t/p/original"
     +movie.backdrop_path);
@@ -236,7 +238,25 @@ async function relatedMovies(id){
   }
 }
 
-//functions to create movies
+//utils
+const lazyLoader= new IntersectionObserver((entries)=>{
+   entries.forEach((entry)=>{
+    if(entry.isIntersecting){
+     const url=entry.target.getAttribute('data-img');
+     entry.target.setAttribute('src',url)
+     }
+   })
+
+});
+const lazyLoaderHref=new IntersectionObserver((entries)=>{
+  entries.forEach((entry)=>{
+   if(entry.isIntersecting){
+    const url=entry.target.getAttribute('data-img');
+    entry.target.setAttribute('href',url)
+    }
+  })
+
+});
 function createMovies(container,movies){
   container.innerHTML="";
  
@@ -256,8 +276,8 @@ function createMovies(container,movies){
     span.innerHTML='Calificación '+movie.vote_average;
     const img=document.createElement("img");
     img.setAttribute("alt",movie.title);
-    img.setAttribute('src','https://image.tmdb.org/t/p/original'+movie.poster_path);
-    
+    img.setAttribute('data-img','https://image.tmdb.org/t/p/original'+movie.poster_path);
+    lazyLoader.observe(img);
    
     div.appendChild(span);
     div.appendChild(img);
@@ -280,7 +300,9 @@ function createPreviewMovies(container,movies){
     })
 
     a.classList.add("classifications-link");
-    a.setAttribute("href",'#category='+movie.id+'-'+movie.name)
+    a.setAttribute("data-img",'#category='+movie.id+'-'+movie.name)
+
+    lazyLoaderHref.observe(a)
     const h3=document.createElement("h3");
     h3.classList.add("id",movie.id)
     h3.innerText='>'+movie.name;
