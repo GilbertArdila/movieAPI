@@ -248,9 +248,10 @@ animation-play-state: paused;
 }
 
 
-/*estilos para sección new*/
+/*estilos para sección new, commingsoon y favourites*/
 .new,
-.commingSoon{
+.commingSoon,
+.favourites{
     position: relative;
     height: auto;
     display: flex;
@@ -262,8 +263,10 @@ animation-play-state: paused;
 .movie{
     overflow-x: hidden;
 }
+
 .new .new-container,
-.commingSoon .commingSoon-container{
+.commingSoon .commingSoon-container,
+.favoutites .favouritesContainer{
     display: flex;
     flex-direction: column;
     width: 300px;
@@ -275,7 +278,8 @@ animation-play-state: paused;
     width: 70%;
 }
 .new-container img,
-.commingSoon-container img{
+.commingSoon-container img,
+.favouritesContainer img{
     width: 150px;
     height: 200px;
     margin: 0 10px;
@@ -488,6 +492,7 @@ footer{
         margin: 0 auto;
         
     }
+    .new-container img,
     .commingSoon-container img{
         width: 250px;
         height: 400px;
