@@ -22,41 +22,72 @@ async function getTrendingMoviesPreview(){
   
   //cleannig html to avoid double louding
   movieContainer.innerHTML="";
-  movies.map(movie=>{
-   
-    const div=document.createElement("div");
+  createPreviewMovies(movieContainer,movies)
 
-    div.addEventListener("click",function(){
-      location.hash="#movie="+movie.id;
-    })
+  // movies.map(movie=>{
+   
+  //   const div=document.createElement("div");
 
-    div.classList.add("new-container");
-    div.classList.add("container");
-    const img=document.createElement("img");
-    img.setAttribute("alt",movie.title);
-    img.setAttribute("data-img",'https://image.tmdb.org/t/p/w300/'+movie.poster_path);
-    lazyLoader.observe(img)
+  //   div.addEventListener("click",function(){
+  //     location.hash="#movie="+movie.id;
+  //   })
+
+  //   div.classList.add("new-container");
+  //   div.classList.add("container");
+  //   const img=document.createElement("img");
+  //   img.setAttribute("alt",movie.title);
+  //   img.setAttribute("data-img",'https://image.tmdb.org/t/p/w300/'+movie.poster_path);
+  //   lazyLoader.observe(img)
    
-    const p=document.createElement("p");
-    p.innerText=movie.original_title;
-    div.appendChild(img)
-    div.appendChild(p);
+  //   const p=document.createElement("p");
+  //   p.innerText=movie.original_title;
+
+    
+
+  //   div.appendChild(img)
+  //   div.appendChild(p);
    
-    movieContainer.appendChild(div);
+  //   movieContainer.appendChild(div);
     
+  //   likedButton.addEventListener("click",function(e){
+  //     e.preventDefault();
+  //     console.log("Like")
+  //   })
     
-    
-  })
+  // })
  
  
 }
 
 async function categoriesPreview(){
   const {data}= await API('genre/movie/list');
-  const categories=data.genres;
+  const movies=data.genres;
   //createMovies(categories, section)
   section.innerHTML="";
-  createPreviewMovies(section,categories);
+  movies.map(movie=>{
+
+   
+    const a=document.createElement("a");
+
+    a.addEventListener("click",function(){
+      location.hash="#movie="+movie.id;
+      
+    })
+
+    a.classList.add("classifications-link");
+    a.setAttribute("data-img",'#category='+movie.id+'-'+movie.name)
+    
+    
+
+    const h3=document.createElement("h3");
+    h3.classList.add("id",movie.id)
+    h3.innerText='>'+movie.name;
+    a.appendChild(h3)
+    section.appendChild(a);
+
+    //llamando al lazyload
+    lazyLoaderHref.observe(a)
+  })
 
 }
 async function getMoviesBycategory(id,name){
@@ -131,30 +162,33 @@ async function getUpcommingMoviesPreview(){
   const movies=data.results;
   commingSoon.innerHTML="";
   section_title.innerHTML="Proximamente"
-  movies.map(movie=>{
-   
-    const div=document.createElement("div");
 
-    div.addEventListener("click",function(){
-      location.hash="#movie="+movie.id;
+  createPreviewMovies(commingSoon,movies)
+
+  // movies.map(movie=>{
+   
+  //   const div=document.createElement("div");
+
+  //   div.addEventListener("click",function(){
+  //     location.hash="#movie="+movie.id;
       
-    })
+  //   })
 
-    div.classList.add("commingSoon-container");
-    div.classList.add("container");
-    const img=document.createElement("img");
-    img.setAttribute("alt",movie.title);
-    img.setAttribute("data-img",'https://image.tmdb.org/t/p/w300/'+movie.poster_path);
-    lazyLoader.observe(img)
+  //   div.classList.add("commingSoon-container");
+  //   div.classList.add("container");
+  //   const img=document.createElement("img");
+  //   img.setAttribute("alt",movie.title);
+  //   img.setAttribute("data-img",'https://image.tmdb.org/t/p/w300/'+movie.poster_path);
+  //   lazyLoader.observe(img)
    
-    const p=document.createElement("p");
-    p.innerText=movie.original_title;
-    div.appendChild(img)
-    div.appendChild(p);
+  //   const p=document.createElement("p");
+  //   p.innerText=movie.original_title;
+  //   div.appendChild(img)
+  //   div.appendChild(p);
    
-    commingSoon.appendChild(div);
+  //   commingSoon.appendChild(div);
     
-  })
+  // })
 
 }
 async function getTopRatedMovies(){
@@ -322,26 +356,45 @@ function createMovies(container,movies,clean=true){
 function createPreviewMovies(container,movies){
       container.innerHTML="";
     
-  movies.map(movie=>{
-
+      movies.map(movie=>{
    
-    const a=document.createElement("a");
+        const div=document.createElement("div");
+    
+        
+    
+        div.classList.add("new-container");
+        div.classList.add("container");
+        const img=document.createElement("img");
+        img.setAttribute("alt",movie.title);
+        img.setAttribute("data-img",'https://image.tmdb.org/t/p/w300/'+movie.poster_path);
+        lazyLoader.observe(img)
+       
+        const likeButton=document.createElement("button");
+        likeButton.classList.add("likeButton")
+        
 
-    a.addEventListener("click",function(){
-      location.hash="#movie="+movie.id;
-      
-    })
+        const p=document.createElement("p");
+        p.innerText=movie.original_title;
+    
+        
+    
+        div.appendChild(img)
+        div.appendChild(likeButton)
+        div.appendChild(p);
+       
+        container.appendChild(div);
 
-    a.classList.add("classifications-link");
-    a.setAttribute("data-img",'#category='+movie.id+'-'+movie.name)
-
-    lazyLoaderHref.observe(a)
-    const h3=document.createElement("h3");
-    h3.classList.add("id",movie.id)
-    h3.innerText='>'+movie.name;
-    a.appendChild(h3)
-    container.appendChild(a);
-  })
+        likeButton.addEventListener("click",(e)=>{
+             e.preventDefault();
+             console.log("Like!!")
+             //para agregar  o quitar clase con el click
+             likeButton.classList.toggle('likedButton')
+        })
+        img.addEventListener("click",function(){
+          location.hash="#movie="+movie.id;
+        })
+        
+      })
 }
 
 //function to create pagination

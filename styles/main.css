@@ -38,17 +38,7 @@ h3{
 main .hidden{
     display: none;
 }
-/*provisional*/
-.btn{
-    position: absolute;
-    top:100%;
-    left: calc(50% - 75px);
-    margin: 0 auto;
-    width: 150px;
-    height: auto;
-    background-color: var(--mainBlue);
-    color: var(--whiteTextColor);
-}
+
 /*estilos para el header*/
 header{
     width: 100%;
@@ -265,8 +255,9 @@ animation-play-state: paused;
 }
 
 .new .new-container,
-.commingSoon .commingSoon-container,
+.commingSoon .new-container,
 .favoutites .favouritesContainer{
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 300px;
@@ -284,8 +275,22 @@ animation-play-state: paused;
     height: 200px;
     margin: 0 10px;
 }
+/*estilos para el botón de like*/
+.likeButton{
+  position: absolute;
+  top:5px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  z-index: 100;
+}
+.likeButton::before{
+    content: '❤️';
+}
+.likedButton{
 
-
+}
 /*estilos para sección classifications*/
 
 .classifications{
