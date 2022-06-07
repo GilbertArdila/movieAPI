@@ -76,7 +76,8 @@ async function getMoviesBycategory(id,name){
    }
   });
   const movies=data.results;
-
+  MaxPages=data.total_pages;
+  
   moviesByClasification.innerHTML="";
   
   section_title.innerHTML='Categoría: '+name
@@ -91,15 +92,17 @@ async function getMovieBySearch(query){
     },
   });
   const movies=data.results;
-  
+  MaxPages=data.total_pages;
+  console.log(MaxPages)
    section_title.innerHTML='Resultados '
-  createMovies(moviesByClasification,movies)
+  createMovies(moviesByClasification,movies,)
  
 }
 
 async function getTrendingMovies(){
   const {data}= await API('trending/movie/day')
   const movies=data.results;
+  MaxPages=data.total_pages;
   section_title.innerHTML='Nuevas películas'
   createMovies(moviesByClasification,movies)
 
@@ -115,14 +118,11 @@ async function getTrendingMovies(){
 async function getPopularMovies(){
   const {data}=await API('/movie/popular')
   const movies=data.results;
+  MaxPages=data.total_pages;
   section_title.innerHTML='Populares'
   createMovies(moviesByClasification,movies)
 
-  // const btn=document.createElement("button");
-  // btn.classList.add("btn")
-  // btn.innerText="cargar más";
-  // btn.addEventListener("click",getPaginatedMovies);
-  // moviesByClasification.appendChild(btn)
+  
  
 }
 
@@ -251,12 +251,14 @@ async function relatedMovies(id){
 
   const {data}= await API('movie/'+id+'/recommendations')
   const movies=data.results;
+  MaxPages=data.total_pages;
   section_title.innerText='Recomendadas'
   //checking if there is not related movies
   if(movies.length<=0){
     section_title.innerText='Lo sentimos no tenemos recomendaciones para este título'
 
   }else{
+    
   createMovies(moviesByClasification,movies)
   }
 }
@@ -321,6 +323,7 @@ function createPreviewMovies(container,movies){
       container.innerHTML="";
     
   movies.map(movie=>{
+
    
     const a=document.createElement("a");
 
@@ -341,7 +344,7 @@ function createPreviewMovies(container,movies){
   })
 }
 
-
+//function to create pagination
 async function getPaginatedMovies(){
 //obtenemos las medidas del documentElement para validar el scroll
   const {scrollTop,
@@ -350,8 +353,11 @@ async function getPaginatedMovies(){
   }=document.documentElement;
   //validamos si ya está al final
   const scrollIsBottom=(scrollTop+clientHeight)>=(scrollHeight-15);
-  //si es true llamamaos la nueva página
-  if(scrollIsBottom){
+  //checking possible number of pages 
+  const isNotLastPage= page<MaxPages;
+  //si es true llamamos la nueva página
+  if(scrollIsBottom && isNotLastPage){
+  
     page++;
     const {data}= await API('trending/movie/day',{
       params:{
@@ -359,6 +365,7 @@ async function getPaginatedMovies(){
       }
     })
     const movies=data.results;
+  
     section_title.innerHTML='Nuevas películas'
     createMovies(moviesByClasification,movies,false)
   }

@@ -1,5 +1,5 @@
 let page=1;
-
+let MaxPages;
 //creating function to detecte the page location
 
 header_links__search.addEventListener('click',()=>{
@@ -41,8 +41,8 @@ function moviePage(){
     studios.classList.add("hidden");
     newContainer.classList.add("hidden");
     commingSoonContainer.classList.add("hidden");
-    classificationsContainer.classList.add("hidden");
-    
+
+    classificationsContainer.classList.remove("hidden");
     moviesByClasificationContainer.classList.remove("hidden");
     movieDetailContainer.classList.remove("hidden");
 
@@ -105,13 +105,12 @@ function searchPage(){
     newMovies.classList.add("hidden");
     studios.classList.add("hidden");
     newContainer.classList.add("hidden");
-    classificationsContainer.classList.remove("hidden");
+    classificationsContainer.classList.add("hidden");  
     commingSoonContainer.classList.add("hidden");
     movieDetailContainer.classList.add("hidden");
 
     moviesByClasificationContainer.classList.remove("hidden");
-
-    const url=location.hash.split('=');
+      const url=location.hash.split('=');
     const query=url[1];
    
     getMovieBySearch(query)
