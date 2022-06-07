@@ -8,6 +8,7 @@ const classificationsContainer=document.querySelector(".classificationsContainer
 const moviesByClasification=document.querySelector(".moviesByClasification");
 const moviesByClasificationContainer=document.querySelector(".moviesByClasificationContainer");
 const movieDetailContainer=document.querySelector(".movieDetailContainer");
+const favouritesContainer=document.querySelector(".favouritesContainer");
 const movieDetail=document.querySelector(".movieDetail");
 
 const header_links__search=document.querySelector(".header-links__search");

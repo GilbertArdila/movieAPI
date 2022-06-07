@@ -14,6 +14,32 @@ const API= axios.create({
 
   }
 })
+//localStorage
+function likedMoviesList(){
+   const item=JSON.parse(localStorage.getItem('liked_movies'));
+   let movies;
+   if(item){
+     movies=item;
+   }else{
+       movies={}
+   }
+  return movies
+}
+
+function likeMovie(movie){
+  console.log(movie)
+  const likedMovies=likedMoviesList()
+    if(likedMovies[movie.id]){
+      //eliminamos la pelicula del arreglo
+      likedMovies[movie.id]=undefined;
+    }else{
+      //guardamos todo el objeto pelicula 
+      likedMovies[movie.id]=movie;
+    }
+    //agregamos likedMovies al localStorage
+    localStorage.setItem('liked_movies',JSON.stringify(likedMovies));
+    
+}
 
 async function getTrendingMoviesPreview(){
   const {data}= await API('trending/movie/day');
@@ -24,37 +50,7 @@ async function getTrendingMoviesPreview(){
   movieContainer.innerHTML="";
   createPreviewMovies(movieContainer,movies)
 
-  // movies.map(movie=>{
-   
-  //   const div=document.createElement("div");
-
-  //   div.addEventListener("click",function(){
-  //     location.hash="#movie="+movie.id;
-  //   })
-
-  //   div.classList.add("new-container");
-  //   div.classList.add("container");
-  //   const img=document.createElement("img");
-  //   img.setAttribute("alt",movie.title);
-  //   img.setAttribute("data-img",'https://image.tmdb.org/t/p/w300/'+movie.poster_path);
-  //   lazyLoader.observe(img)
-   
-  //   const p=document.createElement("p");
-  //   p.innerText=movie.original_title;
-
-    
-
-  //   div.appendChild(img)
-  //   div.appendChild(p);
-   
-  //   movieContainer.appendChild(div);
-    
-  //   likedButton.addEventListener("click",function(e){
-  //     e.preventDefault();
-  //     console.log("Like")
-  //   })
-    
-  // })
+  
  
  
 }
@@ -370,7 +366,7 @@ function createPreviewMovies(container,movies){
         lazyLoader.observe(img)
        
         const likeButton=document.createElement("button");
-        likeButton.classList.add("likeButton")
+        likeButton.classList.add("new-container--likeButton")
         
 
         const p=document.createElement("p");
@@ -384,12 +380,17 @@ function createPreviewMovies(container,movies){
        
         container.appendChild(div);
 
+        //para poner o quitar el like
         likeButton.addEventListener("click",(e)=>{
              e.preventDefault();
-             console.log("Like!!")
+           
              //para agregar  o quitar clase con el click
-             likeButton.classList.toggle('likedButton')
+             likeButton.classList.toggle('new-container--dontLikeButton')
+             //agregando pelicula a localStorage
+             likeMovie(movie);
         })
+
+        //para poner el hash
         img.addEventListener("click",function(){
           location.hash="#movie="+movie.id;
         })

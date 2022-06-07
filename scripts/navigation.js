@@ -41,6 +41,8 @@ function moviePage(){
     studios.classList.add("hidden");
     newContainer.classList.add("hidden");
     commingSoonContainer.classList.add("hidden");
+    favouritesContainer.classList.add("hidden");
+
 
     classificationsContainer.classList.remove("hidden");
     moviesByClasificationContainer.classList.remove("hidden");
@@ -56,6 +58,8 @@ function popularMovies(){
     classificationsContainer.classList.add("hidden");
     commingSoonContainer.classList.add("hidden");
     movieDetailContainer.classList.add("hidden");
+    favouritesContainer.classList.add("hidden");
+
    
     moviesByClasificationContainer.classList.remove("hidden");
    
@@ -75,6 +79,8 @@ function homePage(){
     newContainer.classList.remove("hidden");
     classificationsContainer.classList.remove("hidden");
     commingSoonContainer.classList.remove("hidden");
+    favouritesContainer.classList.remove("hidden");
+
     moviesByClasificationContainer.classList.add("hidden");
     movieDetailContainer.classList.add("hidden");
     
@@ -91,6 +97,8 @@ function categoryPage(){
     newContainer.classList.add("hidden");
     commingSoonContainer.classList.add("hidden");
     movieDetailContainer.classList.add("hidden");
+    favouritesContainer.classList.add("hidden");
+
    
     
     //getting the selected category id and name
@@ -108,6 +116,8 @@ function searchPage(){
     classificationsContainer.classList.add("hidden");  
     commingSoonContainer.classList.add("hidden");
     movieDetailContainer.classList.add("hidden");
+    favouritesContainer.classList.add("hidden");
+
 
     moviesByClasificationContainer.classList.remove("hidden");
       const url=location.hash.split('=');
@@ -122,6 +132,7 @@ function trendingMovies(){
     newMovies.classList.add("hidden");
     studios.classList.add("hidden");
     newContainer.classList.add("hidden");
+    favouritesContainer.classList.add("hidden");
    
     classificationsContainer.classList.add("hidden");
     commingSoonContainer.classList.add("hidden");
