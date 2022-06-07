@@ -38,6 +38,17 @@ h3{
 main .hidden{
     display: none;
 }
+/*provisional*/
+.btn{
+    position: absolute;
+    top:100%;
+    left: calc(50% - 75px);
+    margin: 0 auto;
+    width: 150px;
+    height: auto;
+    background-color: var(--mainBlue);
+    color: var(--whiteTextColor);
+}
 /*estilos para el header*/
 header{
     width: 100%;
@@ -152,7 +163,7 @@ animation-play-state: paused;
     }
      50%{
         
-         margin-left: calc(-5800px);
+         margin-left: calc(-6200px);
      }
      100% {
         margin-left:90px
@@ -285,6 +296,7 @@ padding: 10px;
 }
 /*estilos para sección moviesByClassification*/
 .moviesByClasification{
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     width: 100%;

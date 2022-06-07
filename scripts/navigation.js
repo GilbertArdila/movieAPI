@@ -1,3 +1,5 @@
+let page=1;
+
 //creating function to detecte the page location
 
 header_links__search.addEventListener('click',()=>{
@@ -51,7 +53,7 @@ function popularMovies(){
     newMovies.classList.add("hidden");
     studios.classList.add("hidden");
     newContainer.classList.add("hidden");
-    classificationsContainer.classList.remove("hidden");
+    classificationsContainer.classList.add("hidden");
     commingSoonContainer.classList.add("hidden");
     movieDetailContainer.classList.add("hidden");
    
@@ -121,6 +123,7 @@ function trendingMovies(){
     newMovies.classList.add("hidden");
     studios.classList.add("hidden");
     newContainer.classList.add("hidden");
+   
     classificationsContainer.classList.add("hidden");
     commingSoonContainer.classList.add("hidden");
     movieDetailContainer.classList.add("hidden");
@@ -133,3 +136,4 @@ function trendingMovies(){
 
 window.addEventListener('hashchange',navigator,false);
 window.addEventListener('load',navigator,false);
+window.addEventListener('scroll',getPaginatedMovies,{passive:false});

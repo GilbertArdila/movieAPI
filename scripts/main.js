@@ -102,6 +102,14 @@ async function getTrendingMovies(){
   const movies=data.results;
   section_title.innerHTML='Nuevas películas'
   createMovies(moviesByClasification,movies)
+
+  // const btn=document.createElement("button");
+  // btn.classList.add("btn")
+  // btn.innerText="cargar más";
+  // btn.addEventListener("click",getPaginatedMovies);
+  // moviesByClasification.appendChild(btn)
+
+  
  
 }
 async function getPopularMovies(){
@@ -109,6 +117,12 @@ async function getPopularMovies(){
   const movies=data.results;
   section_title.innerHTML='Populares'
   createMovies(moviesByClasification,movies)
+
+  // const btn=document.createElement("button");
+  // btn.classList.add("btn")
+  // btn.innerText="cargar más";
+  // btn.addEventListener("click",getPaginatedMovies);
+  // moviesByClasification.appendChild(btn)
  
 }
 
@@ -184,7 +198,7 @@ async function getTopRatedMovies(){
 async function  getMovieById(id){
   //has not an array as an answer
   const {data:movie}= await API('movie/'+id)
-  console.log(movie)
+ 
   const section_title=document.querySelector(".movieDetailContainer .section-title");
   section_title.innerText=movie.title
   movieDetail.innerHTML=""
@@ -199,15 +213,20 @@ async function  getMovieById(id){
     span.innerHTML='Calificación '+movie.vote_average;
     const img=document.createElement("img");
     img.setAttribute("alt",movie.title);
-    if(movie.backdrop_path===null){
-      img.setAttribute('src','https://image.tmdb.org/t/p/original'+movie.poster_path);
-    }
-    else if(movie.backdrop_path===null && movie.poster_path===null){
+    img.setAttribute('data-img','https://image.tmdb.org/t/p/original'+movie.poster_path);
+    
+
+    if(movie.poster_path===null){
       img.setAttribute('src','https://image.tmdb.org/t/p/original'+movie.backdrop_path);
     }
-    else{
-      img.setAttribute('src','https://image.tmdb.org/t/p/original'+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb-j5czZKCBg2Og1We4HoVkt-YBX8dwiz_kQ&usqp=CAU');
-    }
+    if(movie.backdrop_path===null){
+        img.setAttribute('src','https://image.tmdb.org/t/p/original'+movie.poster_path);
+      }
+      if(movie.backdrop_path===null && movie.poster_path===null){
+          img.setAttribute('src','https://image.tmdb.org/t/p/original'+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb-j5czZKCBg2Og1We4HoVkt-YBX8dwiz_kQ&usqp=CAU');
+        }
+    
+        lazyLoader.observe(img);
     
     
     const p=document.createElement("p");
@@ -262,8 +281,12 @@ const lazyLoaderHref=new IntersectionObserver((entries)=>{
   })
 
 });
-function createMovies(container,movies){
-  container.innerHTML="";
+function createMovies(container,movies,clean=true){
+  //por defecto es true para que limpie la página y así evitar doble carga, se declara false para cargar más peliculas
+  if(clean){
+    container.innerHTML="";
+
+  }
  
 
 
@@ -288,8 +311,10 @@ function createMovies(container,movies){
     div.appendChild(img);
    
     container.appendChild(div);
-    }
+
     
+    }
+   
 })
 }
 function createPreviewMovies(container,movies){
@@ -314,4 +339,30 @@ function createPreviewMovies(container,movies){
     a.appendChild(h3)
     container.appendChild(a);
   })
+}
+
+
+async function getPaginatedMovies(){
+//obtenemos las medidas del documentElement para validar el scroll
+  const {scrollTop,
+    clientHeight,
+    scrollHeight
+  }=document.documentElement;
+  //validamos si ya está al final
+  const scrollIsBottom=(scrollTop+clientHeight)>=(scrollHeight-15);
+  //si es true llamamaos la nueva página
+  if(scrollIsBottom){
+    page++;
+    const {data}= await API('trending/movie/day',{
+      params:{
+        page
+      }
+    })
+    const movies=data.results;
+    section_title.innerHTML='Nuevas películas'
+    createMovies(moviesByClasification,movies,false)
+  }
+  
+  
+ 
 }
