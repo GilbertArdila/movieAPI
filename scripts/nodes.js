@@ -21,3 +21,4 @@ const section_title=document.querySelector(".moviesByClasificationContainer .sec
 const commingSoon=document.querySelector(".commingSoon");
 
 const loading=document.querySelectorAll(".estudios-container--loading");
+const favourites=document.querySelector(".favourites");

@@ -71,6 +71,8 @@ function homePage(){
     categoriesPreview()
     getUpcommingMoviesPreview()
     getTopRatedMovies()
+    getLikedMovies();
+
     
    
    // showing sections
@@ -147,3 +149,5 @@ function trendingMovies(){
 window.addEventListener('hashchange',navigator,false);
 window.addEventListener('load',navigator,false);
 window.addEventListener('scroll',getPaginatedMovies,{passive:false});
+
+         

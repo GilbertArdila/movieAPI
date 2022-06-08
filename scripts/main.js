@@ -15,32 +15,39 @@ const API= axios.create({
   }
 })
 //localStorage
+//lista de peliculas en me gusta
 function likedMoviesList(){
+  //pasrseamos la info
    const item=JSON.parse(localStorage.getItem('liked_movies'));
    let movies;
+   //si la lista tiene algo
    if(item){
      movies=item;
+     //si la lista está vacía
    }else{
        movies={}
    }
   return movies
 }
-
+//para darle like o dislike a la pelicula 
 function likeMovie(movie){
-  console.log(movie)
+ //llamamos la función de películas con like
   const likedMovies=likedMoviesList()
+  //si la pelicula ya existe la elimina, don´t like
     if(likedMovies[movie.id]){
       //eliminamos la pelicula del arreglo
       likedMovies[movie.id]=undefined;
+      //si la película no existe la agrega, like
     }else{
       //guardamos todo el objeto pelicula 
       likedMovies[movie.id]=movie;
     }
-    //agregamos likedMovies al localStorage
+    //agregamos likedMovies al localStorage, lo convertimos a string
     localStorage.setItem('liked_movies',JSON.stringify(likedMovies));
     
 }
 
+//funciones para las diferentes categorias o vistas
 async function getTrendingMoviesPreview(){
   const {data}= await API('trending/movie/day');
  
@@ -213,12 +220,34 @@ async function getTopRatedMovies(){
     img.setAttribute("src","https://image.tmdb.org/t/p/original"
     +movie.backdrop_path);
     }
+
+    //botón para el like
+    const likeButton=document.createElement("button");
+    likeButton.classList.add("new-container--likeButton")
+
+    //verificamos si la película ya está en la lista para ponerle por defecto la clase de new-container--dontLikeButton
+    likedMoviesList()[movie.id]?likeButton.classList.add("new-container--dontLikeButton"):likeButton.classList.add("new-container--likeButton");
+
     const p=document.createElement("p");
     const pText=document.createTextNode(movie.title);
     p.appendChild(pText);
     div.appendChild(img);
+    div.appendChild(likeButton);
     div.appendChild(p);
     topRatedMovies.appendChild(div);
+
+     //para poner o quitar el like
+     likeButton.addEventListener("click",(e)=>{
+      e.preventDefault();
+    
+      //para agregar  o quitar clase con el click
+      likeButton.classList.toggle('new-container--dontLikeButton')
+      //agregando pelicula a localStorage
+      likeMovie(movie);
+      window.location.reload();
+      document.documentElement.scrollTop=0;
+      document.body.scrollTop=0;
+ })
 
     
   })
@@ -291,6 +320,22 @@ async function relatedMovies(id){
     
   createMovies(moviesByClasification,movies)
   }
+}
+
+function getLikedMovies(){
+  const likedMovies=likedMoviesList();
+  //convertir el objeto en array
+  const moviesArray=Object.values(likedMovies)
+
+  
+
+  const section_title=document.querySelector(".favouritesContainer .section-title");
+  section_title.innerHTML="Mis favoritas"
+  
+  createPreviewMovies(favourites,moviesArray)
+ 
+        
+ 
 }
 
 //utils
@@ -367,6 +412,9 @@ function createPreviewMovies(container,movies){
        
         const likeButton=document.createElement("button");
         likeButton.classList.add("new-container--likeButton")
+
+        //verificamos si la película ya está en la lista para ponerle por defecto la clase de new-container--dontLikeButton
+        likedMoviesList()[movie.id]?likeButton.classList.add("new-container--dontLikeButton"):likeButton.classList.add("new-container--likeButton");
         
 
         const p=document.createElement("p");
@@ -388,6 +436,9 @@ function createPreviewMovies(container,movies){
              likeButton.classList.toggle('new-container--dontLikeButton')
              //agregando pelicula a localStorage
              likeMovie(movie);
+             window.location.reload();
+             document.documentElement.scrollTop=0;
+             document.body.scrollTop=0;
         })
 
         //para poner el hash
