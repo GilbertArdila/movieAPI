@@ -1,19 +1,59 @@
+const language=navigator.language;
+let lang;
+if(language===undefined){
+    lang='en'
+    langSelector.src==='https://cdn4.iconfinder.com/data/icons/world-flags-12/512/Untitled-2-05-128.png'
+  
+  }else{
+    if(language.includes('en')){
+      lang='en'
+      langSelector.src==='https://cdn4.iconfinder.com/data/icons/world-flags-12/512/Untitled-2-05-128.png'
+    }
+    if(language.includes('es')){
+      lang='es'
+      langSelector.src==='https://cdn4.iconfinder.com/data/icons/world-flags-12/512/Untitled-2-05-128.png'
+     
+    }
+   
+}
+
+langSelector.onclick=()=>{
+    
+    if(langSelector.src==='https://cdn4.iconfinder.com/data/icons/world-flags-12/512/Untitled-2-05-128.png'){
+       langSelector.src="https://cdn4.iconfinder.com/data/icons/flat-country-flag/512/United_States-128.png";
+      
+      
+      
+    }
+    else{
+       langSelector.src="https://cdn4.iconfinder.com/data/icons/world-flags-12/512/Untitled-2-05-128.png";
+      
+      
+      
+      
+
+    }
+    
+}
+
+
 //creating URL base
 const BASE_URL='https://api.themoviedb.org/3/';
+console.log(lang)
+ //creating axios
 
-
-//creating axios
-const API= axios.create({
+ const API= axios.create({
   baseURL:BASE_URL,
   Headers:{
     'Content-Type':'application/json;charset=utf-8'
   },
   params:{
     'api_key':API_KEY,
-    'language':'es'
+    'language':lang
 
   }
 })
+
 //localStorage
 //lista de peliculas en me gusta
 function likedMoviesList(){
@@ -338,143 +378,4 @@ function getLikedMovies(){
  
 }
 
-//utils
-const lazyLoader= new IntersectionObserver((entries)=>{
-   entries.forEach((entry)=>{
-    
-    if(entry.isIntersecting){
-     const url=entry.target.getAttribute('data-img');
-     entry.target.setAttribute('src',url)
-     }
-   })
 
-});
-const lazyLoaderHref=new IntersectionObserver((entries)=>{
-  entries.forEach((entry)=>{
-   if(entry.isIntersecting){
-    const url=entry.target.getAttribute('data-img');
-    entry.target.setAttribute('href',url)
-    }
-  })
-
-});
-function createMovies(container,movies,clean=true){
-  //por defecto es true para que limpie la página y así evitar doble carga, se declara false para cargar más peliculas
-  if(clean){
-    container.innerHTML="";
-
-  }
- 
-
-
-  movies.map(movie=>{
-    if(movie.poster_path!=null && movie.adult===false){
-    const div=document.createElement("div");
-
-    div.addEventListener("click",function(){
-      location.hash="#movie="+movie.id;
-      
-    })
-
-    div.classList.add("movieByCategoryContainer");
-    const span=document.createElement("span");
-    span.innerHTML='Calificación '+movie.vote_average;
-    const img=document.createElement("img");
-    img.setAttribute("alt",movie.title);
-    img.setAttribute('data-img','https://image.tmdb.org/t/p/original'+movie.poster_path);
-    lazyLoader.observe(img);
-   
-    div.appendChild(span);
-    div.appendChild(img);
-   
-    container.appendChild(div);
-
-    
-    }
-   
-})
-}
-function createPreviewMovies(container,movies){
-      container.innerHTML="";
-    
-      movies.map(movie=>{
-   
-        const div=document.createElement("div");
-    
-        
-    
-        div.classList.add("new-container");
-        div.classList.add("container");
-        const img=document.createElement("img");
-        img.setAttribute("alt",movie.title);
-        img.setAttribute("data-img",'https://image.tmdb.org/t/p/w300/'+movie.poster_path);
-        lazyLoader.observe(img)
-       
-        const likeButton=document.createElement("button");
-        likeButton.classList.add("new-container--likeButton")
-
-        //verificamos si la película ya está en la lista para ponerle por defecto la clase de new-container--dontLikeButton
-        likedMoviesList()[movie.id]?likeButton.classList.add("new-container--dontLikeButton"):likeButton.classList.add("new-container--likeButton");
-        
-
-        const p=document.createElement("p");
-        p.innerText=movie.original_title;
-    
-        
-    
-        div.appendChild(img)
-        div.appendChild(likeButton)
-        div.appendChild(p);
-       
-        container.appendChild(div);
-
-        //para poner o quitar el like
-        likeButton.addEventListener("click",(e)=>{
-             e.preventDefault();
-           
-             //para agregar  o quitar clase con el click
-             likeButton.classList.toggle('new-container--dontLikeButton')
-             //agregando pelicula a localStorage
-             likeMovie(movie);
-             window.location.reload();
-             document.documentElement.scrollTop=0;
-             document.body.scrollTop=0;
-        })
-
-        //para poner el hash
-        img.addEventListener("click",function(){
-          location.hash="#movie="+movie.id;
-        })
-        
-      })
-}
-
-//function to create pagination
-async function getPaginatedMovies(){
-//obtenemos las medidas del documentElement para validar el scroll
-  const {scrollTop,
-    clientHeight,
-    scrollHeight
-  }=document.documentElement;
-  //validamos si ya está al final
-  const scrollIsBottom=(scrollTop+clientHeight)>=(scrollHeight-15);
-  //checking possible number of pages 
-  const isNotLastPage= page<MaxPages;
-  //si es true llamamos la nueva página
-  if(scrollIsBottom && isNotLastPage){
-  
-    page++;
-    const {data}= await API('trending/movie/day',{
-      params:{
-        page
-      }
-    })
-    const movies=data.results;
-  
-    section_title.innerHTML='Nuevas películas'
-    createMovies(moviesByClasification,movies,false)
-  }
-  
-  
- 
-}

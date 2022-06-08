@@ -502,7 +502,14 @@ footer{
 
 }
 @media(min-width:700px){
-   
+    .header-links {
+       padding: 5px 20px;
+        justify-content: space-between;
+    }
+    header section {
+        padding: 0 20px;
+        justify-content: space-between;
+    }
     .studios{
         display: flex;
         margin: 0 auto;
