@@ -1,45 +1,10 @@
-const language=navigator.language;
-let lang;
-if(language===undefined){
-    lang='en'
-    langSelector.src==='https://cdn4.iconfinder.com/data/icons/world-flags-12/512/Untitled-2-05-128.png'
-  
-  }else{
-    if(language.includes('en')){
-      lang='en'
-      langSelector.src==='https://cdn4.iconfinder.com/data/icons/world-flags-12/512/Untitled-2-05-128.png'
-    }
-    if(language.includes('es')){
-      lang='es'
-      langSelector.src==='https://cdn4.iconfinder.com/data/icons/world-flags-12/512/Untitled-2-05-128.png'
-     
-    }
-   
-}
-
-langSelector.onclick=()=>{
-    
-    if(langSelector.src==='https://cdn4.iconfinder.com/data/icons/world-flags-12/512/Untitled-2-05-128.png'){
-       langSelector.src="https://cdn4.iconfinder.com/data/icons/flat-country-flag/512/United_States-128.png";
-      
-      
-      
-    }
-    else{
-       langSelector.src="https://cdn4.iconfinder.com/data/icons/world-flags-12/512/Untitled-2-05-128.png";
-      
-      
-      
-      
-
-    }
-    
-}
+const lang=sessionStorage.getItem('lang')
+console.log(lang)
+console.log(sessionStorage.getItem('lang'))
 
 
 //creating URL base
 const BASE_URL='https://api.themoviedb.org/3/';
-console.log(lang)
  //creating axios
 
  const API= axios.create({
@@ -49,9 +14,12 @@ console.log(lang)
   },
   params:{
     'api_key':API_KEY,
-    'language':lang
+    
+    'language':lang===null ?'en':lang
+      
+    }
 
-  }
+  
 })
 
 //localStorage

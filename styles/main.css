@@ -62,6 +62,21 @@ header section{
 .header-searcher input{
     margin: 0 5px;
 }
+.header-searcher-lang{
+    width: 40px;
+    height: 40px;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+.header-searcher-lang--spanish{
+    background-image: url('https://cdn4.iconfinder.com/data/icons/world-flags-12/512/Untitled-2-05-128.png');
+
+}
+.header-searcher-lang--english{
+    background-image: url('https://cdn4.iconfinder.com/data/icons/flat-country-flag/512/United_States-128.png');
+
+}
 main section .container{
     display: flex;
     justify-content: center;

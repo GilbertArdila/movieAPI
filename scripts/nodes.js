@@ -23,4 +23,4 @@ const commingSoon=document.querySelector(".commingSoon");
 const loading=document.querySelectorAll(".estudios-container--loading");
 const favourites=document.querySelector(".favourites");
 
-const langSelector=document.querySelector(".lang");
+const langSelector=document.querySelector(".header-searcher-lang");
