@@ -293,6 +293,7 @@ async function relatedMovies(id){
   createTitles(lang,section_title,'Películas recomendadas','Related movies');
   //checking if there is not related movies
   if(movies.length<=0){
+   
     section_title.innerHTML=""
     createTitles(lang,section_title,'Lo sentimos no tenemos recomendaciones para este título','We are sorry, are not related movies to this title');
    
