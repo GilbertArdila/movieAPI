@@ -147,7 +147,7 @@ header .header-links img,
 
 /*estilos para sección newMovies*/
 .newMovies{
-    position: relative;
+    width: 90%;
     height: 150px;
     display: flex;
     flex-direction: row;
@@ -161,51 +161,23 @@ header .header-links img,
 
 .newMovies .newMovies-container{
     display:flex;
-    scroll-snap-align: center;
+    justify-content: space-around;
+   scroll-snap-align: center;
     width: 100%;
     height: 100%;
-}
-
-.new-container p,
-.favourites-container p{
-    margin: 10px auto;
-    font-size: 2rem;
-    font-family: var(--secondaryText);
-   color: var(--whiteTextColor);
-   padding: 0 5px;
 }
 .topMovie-container{
+    display: flex;
     width: 100%;
     height: 100%;
+    margin: 0 5px;
     position: relative;
   
     
 }
-.newMovies-container{
-    animation-name: move;
-    animation-duration: 50s;
-    animation-iteration-count: infinite;
-    animation-direction:normal; 
-    animation-timing-function: linear;
-}
-.newMovies-container:hover{
-animation-play-state: paused;
-}  
-@keyframes move{
-    0% {
-        margin-left: 90px
-    }
-     50%{
-        
-         margin-left: calc(-6200px);
-     }
-     100% {
-        margin-left:90px
-    }
-} 
 .newMovies .newMovies-container
 .topMovie-container img{
-    width: 300px;
+    width: 100vw;
     height: 100%;
     opacity: 0.7;
 }
@@ -215,6 +187,40 @@ animation-play-state: paused;
     left: calc(20%);
     color: var(--whiteTextColor);
 }
+/**/
+.new-container p,
+.favourites-container p{
+    margin: 10px auto;
+    font-size: 2rem;
+    font-family: var(--secondaryText);
+   color: var(--whiteTextColor);
+   padding: 0 5px;
+}
+
+.newMovies-container{
+    animation-name: move;
+    animation-duration: 80s;
+    animation-iteration-count: infinite;
+    animation-direction:normal; 
+    animation-timing-function: linear;
+}
+.newMovies-container:hover{
+animation-play-state: paused;
+}  
+@keyframes move{
+    0% {
+        margin-left: calc(100vw * 8.8)
+    }
+     50%{
+        
+         margin-left:calc(100vw * -8.8)
+     }
+     100% {
+        margin-left:calc(100vw * 8.8)
+    }
+} 
+
+
 
 .tituloPelicula{
     position: absolute;
@@ -469,6 +475,35 @@ animation-delay: 0.2s;
 .sectionContainer--loading:nth-child(3){
     animation-delay: 0.4s;
     }
+    @media(min-width:700px){
+        .header-links {
+           padding: 5px 20px;
+            justify-content: space-between;
+        }
+        header section {
+            padding: 0 20px;
+            justify-content: space-between;
+        }
+        .studios{
+            display: flex;
+            margin: 0 auto;
+            
+        }
+        .newMovies{
+            height: 200px;
+            
+        }
+        .new-container img,
+        .commingSoon-container img,
+        .favourites-container img{
+            width: 250px;
+            height: 400px;
+            margin: 0 10px;
+        }
+        
+        
+        
+    }
 @media(min-width:830px){
     
     header{
@@ -506,14 +541,11 @@ margin: 20px auto;
 font-size: 3rem;
 font-family: var(--mainText);
 }
+
 .newMovies{
-    height: 200px;
-    
+    height: 250px;
 }
-.newMovies .newMovies-container
-.topMovie-container img{
-    width: 400px;
-}
+
 .new-container img,
 .commingSoon-container img{
     width: 300px;
@@ -528,43 +560,27 @@ footer{
     flex-direction: row;
     width: 100%;
 }
- /*animacion para la sección de mejor calificadas*/
- @keyframes move{
-    0% {
-        margin-left: 90px
-    }
-     50%{
-        
-         margin-left: calc(-7200px);
-     }
-     100% {
-        margin-left:90px
-    }
-} 
+ 
 
 }
-@media(min-width:700px){
-    .header-links {
-       padding: 5px 20px;
-        justify-content: space-between;
+@media(min-width:1200px){
+    .newMovies{
+        height: 350px;
     }
-    header section {
-        padding: 0 20px;
-        justify-content: space-between;
+    .newMovies-container{
+        animation-duration: 120s;
     }
-    .studios{
-        display: flex;
-        margin: 0 auto;
-        
-    }
-    .new-container img,
-    .commingSoon-container img,
-    .favourites-container img{
-        width: 250px;
-        height: 400px;
-        margin: 0 10px;
-    }
-    
-    
-    
+     
+    @keyframes move{
+        0% {
+            margin-left: calc(100vw * 6.5)
+        }
+         50%{
+            
+             margin-left:calc(100vw * -6.5)
+         }
+         100% {
+            margin-left:calc(100vw * 6.5)
+        }
+    } 
 }

@@ -175,7 +175,7 @@ async function getTopRatedMovies(){
   movies.map(movie=>{
    
     const div=document.createElement("div");
-
+    //creamos el oyente para pasar el id de la pelicula junto al hash
     div.addEventListener("click",function(){
       location.hash="#movie="+movie.id;
       
@@ -188,12 +188,14 @@ async function getTopRatedMovies(){
       
       img.setAttribute("data-img","https://image.tmdb.org/t/p/original"
     +movie.poster_path);
-      lazyLoader.observe(img)
+    lazyLoader.observe(img)
     }else{
     img.setAttribute("src","https://image.tmdb.org/t/p/original"
     +movie.backdrop_path);
+    
     }
 
+    
     //botón para el like
     const likeButton=document.createElement("button");
     likeButton.classList.add("new-container--likeButton")
