@@ -44,7 +44,7 @@ function moviePage(){
     favouritesContainer.classList.add("hidden");
 
 
-    classificationsContainer.classList.remove("hidden");
+    classificationsContainer.classList.add("hidden");
     moviesByClasificationContainer.classList.remove("hidden");
     movieDetailContainer.classList.remove("hidden");
 
