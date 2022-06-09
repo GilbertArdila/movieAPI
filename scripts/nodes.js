@@ -24,3 +24,9 @@ const loading=document.querySelectorAll(".estudios-container--loading");
 const favourites=document.querySelector(".favourites");
 
 const langSelector=document.querySelector(".header-searcher-lang");
+
+const home=document.querySelector(".header-links__home");
+const popular=document.querySelector(".header-links__myList");
+const tendencies=document.querySelector(".header-links__movies");
+const search=document.querySelector(".header-links__search");
+

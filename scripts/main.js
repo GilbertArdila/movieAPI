@@ -1,6 +1,4 @@
 const lang=sessionStorage.getItem('lang')
-console.log(lang)
-console.log(sessionStorage.getItem('lang'))
 
 
 //creating URL base
@@ -60,20 +58,18 @@ async function getTrendingMoviesPreview(){
   const {data}= await API('trending/movie/day');
  
   const movies=data.results;
+  const title=document.querySelector(".newContainer .section-title");
+  createTitles(lang,title,'En cartelera','New Movies');
   
   //cleannig html to avoid double louding
   movieContainer.innerHTML="";
   createPreviewMovies(movieContainer,movies)
-
-  
- 
  
 }
 
 async function categoriesPreview(){
   const {data}= await API('genre/movie/list');
   const movies=data.genres;
-  //createMovies(categories, section)
   section.innerHTML="";
   movies.map(movie=>{
 
@@ -121,8 +117,8 @@ async function getMoviesBycategory(id,name){
   MaxPages=data.total_pages;
   
   moviesByClasification.innerHTML="";
-  
-  section_title.innerHTML='Categoría: '+name
+  section_title.innerText="";
+  createTitles(lang,section_title,'Categoría: '+name,'Category: '+name);
 
   createMovies(moviesByClasification,movies)
 }
@@ -136,8 +132,9 @@ async function getMovieBySearch(query){
   const movies=data.results;
   MaxPages=data.total_pages;
   console.log(MaxPages)
-   section_title.innerHTML='Resultados '
-  createMovies(moviesByClasification,movies,)
+   section_title.innerHTML=""
+   createTitles(lang,section_title,'Resultados','Coincidences');
+   createMovies(moviesByClasification,movies,)
  
 }
 
@@ -145,62 +142,30 @@ async function getTrendingMovies(){
   const {data}= await API('trending/movie/day')
   const movies=data.results;
   MaxPages=data.total_pages;
-  section_title.innerHTML='Nuevas películas'
+  section_title.innerHTML='';
+  createTitles(lang,section_title,'En cartelera','New movies');
   createMovies(moviesByClasification,movies)
-
-  // const btn=document.createElement("button");
-  // btn.classList.add("btn")
-  // btn.innerText="cargar más";
-  // btn.addEventListener("click",getPaginatedMovies);
-  // moviesByClasification.appendChild(btn)
-
-  
  
 }
 async function getPopularMovies(){
   const {data}=await API('/movie/popular')
   const movies=data.results;
   MaxPages=data.total_pages;
-  section_title.innerHTML='Populares'
-  createMovies(moviesByClasification,movies)
+  section_title.innerHTML=''
+  createTitles(lang,section_title,'Populares','Most popular movies');
 
-  
- 
+  createMovies(moviesByClasification,movies)
 }
 
 async function getUpcommingMoviesPreview(){
   const {data}=await API('/movie/upcoming');
   const movies=data.results;
   commingSoon.innerHTML="";
-  section_title.innerHTML="Proximamente"
-
+  const title=document.querySelector(".commingSoonContainer .section-title");
+  createTitles(lang,title,"Proximamente","Coming soon");
   createPreviewMovies(commingSoon,movies)
 
-  // movies.map(movie=>{
-   
-  //   const div=document.createElement("div");
-
-  //   div.addEventListener("click",function(){
-  //     location.hash="#movie="+movie.id;
-      
-  //   })
-
-  //   div.classList.add("commingSoon-container");
-  //   div.classList.add("container");
-  //   const img=document.createElement("img");
-  //   img.setAttribute("alt",movie.title);
-  //   img.setAttribute("data-img",'https://image.tmdb.org/t/p/w300/'+movie.poster_path);
-  //   lazyLoader.observe(img)
-   
-  //   const p=document.createElement("p");
-  //   p.innerText=movie.original_title;
-  //   div.appendChild(img)
-  //   div.appendChild(p);
-   
-  //   commingSoon.appendChild(div);
-    
-  // })
-
+  
 }
 async function getTopRatedMovies(){
   const {data}=await API('/movie/top_rated');
@@ -300,7 +265,9 @@ async function  getMovieById(id){
     if(movie.overview!=""){
       p.innerHTML=movie.overview;
     }else{
-      p.innerHTML="No cuenta con descripción disponible, lo sentimos!"
+      createTitles(lang,p,"No cuenta con descripción disponible, lo sentimos!",'Sorry this movie has not disponible description');
+
+     
     }
    
     div.appendChild(span);
@@ -318,11 +285,15 @@ async function relatedMovies(id){
 
   const {data}= await API('movie/'+id+'/recommendations')
   const movies=data.results;
+ 
   MaxPages=data.total_pages;
-  section_title.innerText='Recomendadas'
+  section_title.innerText='';
+  createTitles(lang,section_title,'Películas recomendadas','Related movies');
   //checking if there is not related movies
   if(movies.length<=0){
-    section_title.innerText='Lo sentimos no tenemos recomendaciones para este título'
+    section_title.innerHTML=""
+    createTitles(lang,section_title,'Lo sentimos no tenemos recomendaciones para este título','We are sorry, are not related movies to this title');
+   
 
   }else{
     
@@ -338,7 +309,11 @@ function getLikedMovies(){
   
 
   const section_title=document.querySelector(".favouritesContainer .section-title");
-  section_title.innerHTML="Mis favoritas"
+  section_title.innerHTML="";
+  createTitles(lang,section_title,'Mis favorítas','Favourites Movies');
+  
+  
+  
   
   createPreviewMovies(favourites,moviesArray)
  
@@ -346,4 +321,29 @@ function getLikedMovies(){
  
 }
 
+//cambiando los títulos de los links principales de acuerdo al idioma
+if(lang==='en' || lang===null){
+  home.classList.remove("header-links__home-spanish")
+  home.classList.add("header-links__home-english")
 
+  popular.classList.remove('header-links__myList-spanish');
+  popular.classList.add('header-links__myList-english');
+
+  tendencies.classList.remove('header-links__movies-spanish');
+  tendencies.classList.add('header-links__movies-english');
+
+  search.classList.remove("header-links__search-spanish")
+  search.classList.add("header-links__search-english")
+}else{
+  home.classList.add("header-links__home-spanish")
+  home.classList.remove("header-links__home-english")
+
+  popular.classList.add('header-links__myList-spanish');
+  popular.classList.remove('header-links__myList-english');
+
+  tendencies.classList.add('header-links__movies-spanish');
+  tendencies.classList.remove('header-links__movies-english');
+
+  search.classList.add("header-links__search-spanish")
+  search.classList.remove("header-links__search-english")
+}

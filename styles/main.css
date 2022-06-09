@@ -38,6 +38,20 @@ h3{
 main .hidden{
     display: none;
 }
+main section .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 100px;
+    background-color: var(--mainGrey);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 10px;
+    margin-top: 10px;
+   
+}
 
 /*estilos para el header*/
 header{
@@ -77,20 +91,7 @@ header section{
     background-image: url('https://cdn4.iconfinder.com/data/icons/flat-country-flag/512/United_States-128.png');
 
 }
-main section .container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-    height: 100px;
-    background-color: var(--mainGrey);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 0 10px;
-    margin-top: 10px;
-   
-}
+
 .header-logo img{
     width: 86px;
     
@@ -117,6 +118,32 @@ header .header-links img,
 .header-links a{
     margin: 0 3px;
 }
+/*para poner los titulos a los links de acuerdo al idioma*/
+
+ .header-links__home-english::before{
+  content: 'Home';
+}
+.header-links__home-spanish::before{
+    content: 'Inicio';
+  }
+  .header-links__myList-english::before{
+    content: 'Most populars';
+  }
+  .header-links__myList-spanish::before{
+      content: 'Populares';
+    }
+    .header-links__movies-spanish::before{
+        content: 'Cartelera';
+    }
+    .header-links__movies-english::before{
+        content: 'New movies';
+    }
+    .header-links__search-spanish::before{
+        content: 'Buscar';
+    }
+    .header-links__search-english::before{
+        content: 'Search';
+    }
 
 /*estilos para sección newMovies*/
 .newMovies{
