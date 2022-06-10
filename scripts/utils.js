@@ -195,6 +195,23 @@ const lazyLoader= new IntersectionObserver((entries)=>{
   }
   return section_title;
  }
- 
+
+//ponemos acción al goUp
+goUp.onclick=()=>{
+  document.documentElement.scrollTop=0;
+   document.body.scrollTop=0;
+}
+ //mostrando el goUp
+ window.onscroll=()=>{
+  const {scrollTop,
+    clientHeight,
+    scrollHeight
+  }=document.documentElement;
+  if(scrollTop>clientHeight){
+    goUp.classList.remove("hidden");
+  }else{
+    goUp.classList.add("hidden");
+  }
+ }
 
  

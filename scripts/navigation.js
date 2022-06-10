@@ -2,6 +2,7 @@ let page=1;
 let MaxPages;
 //creating function to detecte the page location
 
+//agregando evento tanto a la imagen de busqueda como al enter del searcher
 header_links__search.addEventListener('click',()=>{
     const busqueda=header_searcher__input.value;
     location.hash='#search='+busqueda;
@@ -10,6 +11,17 @@ header_links__search.addEventListener('click',()=>{
     
     
 })
+
+header_searcher__input.onkeyup = (e) => {
+
+    if (e.keyCode === 13) {
+        const busqueda = header_searcher__input.value;
+        location.hash = '#search=' + busqueda;
+        header_searcher__input.value = "";
+    }
+
+
+}
 function navigator(){
     
      if(location.hash.startsWith('#search=')){
@@ -28,9 +40,10 @@ function navigator(){
         trendingMovies()
         
     }
-    else{
-       homePage();
+    else if(location.hash.startsWith('#home')){
+        homePage();
     }
+   
     //to avoid botton scroll when change location.hash
    document.documentElement.scrollTop=0;
    document.body.scrollTop=0;
@@ -72,7 +85,7 @@ function homePage(){
     getUpcommingMoviesPreview()
     getTopRatedMovies()
     getLikedMovies();
-
+    
     
    
    // showing sections
