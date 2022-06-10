@@ -337,6 +337,12 @@ if(lang==='en' || lang===null){
 
   search.classList.remove("header-links__search-spanish")
   search.classList.add("header-links__search-english")
+
+  terms.classList.remove("terms-spanish");
+  terms.classList.add("terms-english");
+
+  aboutUs.classList.remove("aboutUs-spanish");
+  aboutUs.classList.add("aboutUs-english");
 }else{
   home.classList.add("header-links__home-spanish")
   home.classList.remove("header-links__home-english")
@@ -349,4 +355,11 @@ if(lang==='en' || lang===null){
 
   search.classList.add("header-links__search-spanish")
   search.classList.remove("header-links__search-english")
+
+  terms.classList.add("terms-spanish");
+  terms.classList.remove("terms-english");
+
+  aboutUs.classList.add("aboutUs-spanish");
+  aboutUs.classList.remove("aboutUs-english");
 }
+

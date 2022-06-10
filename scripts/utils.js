@@ -3,7 +3,7 @@ const language=navigator.language;
 let idioma;
 
 
-
+//cambiamos lenguaje de acuerdo a la selección del cliente
 if( sessionStorage.getItem('lang')===null){
    
     langSelector.classList.add("header-searcher-lang--english");
@@ -42,9 +42,6 @@ langSelector.onclick=(e)=>{
         window.location.reload();
     }
 }
-
-
-
 
 const lazyLoader= new IntersectionObserver((entries)=>{
     entries.forEach((entry)=>{
@@ -214,4 +211,66 @@ goUp.onclick=()=>{
   }
  }
 
+ //mostrar términos y sobre nosotros
+ terms.onclick=()=>{
+  advises.style.display='inline-block'
+  const span=document.createElement("span");
+  const close=document.querySelector(".close");
  
+  if(lang==='en' || lang===null){
+    span.classList.remove("terms-spanishText");
+    span.classList.remove("aboutUs-spanishText");
+    span.classList.remove("aboutUs-englishText");
+
+    span.classList.add("terms-englishText");
+    } else{
+      span.classList.remove("terms-englishText");
+      span.classList.remove("aboutUs-spanishText");
+      span.classList.remove("aboutUs-englishText");
+      
+      span.classList.add("terms-spanishText");
+    }
+
+  advises.appendChild(span)
+  close.onclick=()=>{
+    span.classList.remove("terms-englishText");
+     span.classList.remove("terms-spanishText");
+     span.classList.remove("aboutUs-spanishText");
+     span.classList.remove("aboutUs-englishText");
+    advises.style.display='none'
+  }
+  
+
+}
+aboutUs.onclick=()=>{
+  advises.style.display='inline-block'
+  const span=document.createElement("span");
+  const close=document.querySelector(".close");
+ 
+  if(lang==='en' || lang===null){
+     span.classList.remove("terms-spanishText");
+     span.classList.remove("terms-englishText");
+     span.classList.remove("aboutUs-spanishText");
+   
+    span.classList.add("aboutUs-englishText");
+    } else{
+      
+      
+       span.classList.remove("terms-englishText");
+      span.classList.remove("terms-spanishText");
+      span.classList.remove("aboutUs-englishText");
+
+      span.classList.add("aboutUs-spanishText");
+    }
+
+  advises.appendChild(span)
+  close.onclick=()=>{
+    span.classList.remove("terms-englishText");
+     span.classList.remove("terms-spanishText");
+     span.classList.remove("aboutUs-spanishText");
+     span.classList.remove("aboutUs-englishText");
+    advises.style.display='none'
+  }
+  
+
+}

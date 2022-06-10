@@ -1,5 +1,6 @@
 :root{
     --mainBlue:#213285;
+    --secondaryBlue:#448AFF;
     --mainBlack:#141722;
     --mainGrey:#2b2d38;
     --whiteTextColor:#e4e4e3;
@@ -36,7 +37,8 @@ h3{
 }
 
 /*estilos para ocultar seccion*/
-main .hidden{
+main .hidden
+{
     display: none;
 }
 main section .container{
@@ -144,6 +146,52 @@ header .header-links img,
     }
     .header-links__search-english::before{
         content: 'Search';
+    }
+    .terms-spanish::before{
+        content: 'Terminos y Condiciones';
+        width: 100px;
+        height: auto;
+        font-size: 1.6rem;
+    }
+    .terms-english::before{
+        content: 'Terms';
+        width: 100px;
+        height: auto;
+        font-size: 1.6rem;
+    }
+    .aboutUs-spanish::before{
+        content: 'Sobre Nosotros';
+        width: 100px;
+        height: auto;
+        font-size: 1.6rem;
+    }
+    .aboutUs-english::before{
+        content: 'About Us';
+        width: 100px;
+        height: auto;
+        font-size: 1.6rem;
+    }
+    .terms-englishText,
+    .terms-spanishText,
+    .aboutUs-spanishText,
+    .aboutUs-englishText{
+        width: 100%;
+        height: auto;
+        color: var(--whiteTextColor);
+        font-size: 2rem;
+    }
+    .terms-englishText::before{
+        content: 'This app has been created for educational and informational purpuses, its use does not entail any cost ';
+      
+    }
+    .terms-spanishText::before{
+        content: 'Esta aplicación ha sido creada con fines educativos e informativos, su uso no supone ningún cargo economíco ';
+    }
+    .aboutUs-englishText::before{
+        content: 'Movies+ is an informative application, here you can see movies in theaters information as comming soon  and best rated movies.';
+    }
+    .aboutUs-spanishText::before{
+        content: 'Movies+ es una aplicación informativa en la cual podras consultar las películas en cartelera así como los próximos estrenos y las películas mejor calificadas de todos los tiempos';
     }
 
 /*estilos para sección newMovies*/
@@ -346,7 +394,7 @@ animation-play-state: paused;
   height: 30px;
   border-radius: 30px;
   z-index: 100;
-     background-color: var(--mainBlue);
+     background-color: var(--secondaryBlue);
 }
 .new-container--dontLikeButton::before{
     content: '👎';
@@ -424,6 +472,7 @@ p{
 }
 /*estilos para footer*/
 footer{
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -431,6 +480,28 @@ footer{
     padding: 10px;
     margin:10px auto;
     background-color: var(--mainBlue);
+}
+.terms,
+.aboutUs{
+    margin: 10px;
+    cursor: pointer;
+}
+
+.advices{
+    display: none;
+    position: absolute;
+    width: calc(30%);
+    height: 200px;
+    padding: 5px;
+    bottom: calc(105%);
+    left: calc(30%);
+    background-color: var(--secondaryBlue);
+    z-index: 200;
+}
+.advices img{
+    width: 40px;
+    height: 40px;
+    margin: 10px;
 }
 /* estilos para la animación de carga*/
 .newMovies-container--loading{

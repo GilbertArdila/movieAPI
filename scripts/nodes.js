@@ -31,3 +31,9 @@ const popular=document.querySelector(".header-links__myList");
 const tendencies=document.querySelector(".header-links__movies");
 const search=document.querySelector(".header-links__search");
 
+const advises=document.querySelector(".advices");
+const terms=document.querySelector(".terms");
+const aboutUs=document.querySelector(".aboutUs");
+
+
+
