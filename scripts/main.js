@@ -174,6 +174,7 @@ async function getTopRatedMovies(){
   topRatedMovies.innerHTML="";
   movies.map(movie=>{
    
+   
     const div=document.createElement("div");
     //creamos el oyente para pasar el id de la pelicula junto al hash
     div.addEventListener("click",function(){
@@ -206,6 +207,7 @@ async function getTopRatedMovies(){
     const p=document.createElement("p");
     const pText=document.createTextNode(movie.title);
     p.appendChild(pText);
+
     div.appendChild(img);
     div.appendChild(likeButton);
     div.appendChild(p);
@@ -224,9 +226,45 @@ async function getTopRatedMovies(){
       document.body.scrollTop=0;
  })
 
+   
     
   })
+       //función para el slider
+//cada slider
+const topMovieContainer=document.querySelectorAll(".topMovie-container");
 
+let contador=1;
+let width=topMovieContainer[0].clientWidth;
+let intervalo=3000;
+
+console.log(width*9.53)
+/*para 420px de ancho el left de topMovie-container sería de 3986px es decir seria 9.48px por cada px de with*/ 
+
+window.addEventListener('resize',function(){
+  width=topMovieContainer[0].clientWidth;
+})
+setInterval(function(){
+//slides();
+},intervalo);
+
+ function slides(){
+  //contenedor del slider
+  topRatedMovies.style.transform='translate('+(-width*contador)+'px)';
+  topRatedMovies.style.transition='transform .8s';
+  contador++;
+ 
+  if(contador===topMovieContainer.length){
+    setTimeout(function(){
+      topRatedMovies.style.transform='translate(0px)';
+      topRatedMovies.style.transition='transform .0s';
+      contador=1;
+    },1500)
+  }
+  //corregimos un error de desviación de los slides
+  if(contador>=7){
+    width=319;
+  }
+ }
 }
 
 async function  getMovieById(id){

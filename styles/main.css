@@ -73,6 +73,7 @@ header{
 header section{
     display: flex;
     align-items: center;
+    justify-content: center;
    
    
 }
@@ -120,32 +121,41 @@ header .header-links img,
 }
 .header-links a{
     margin: 0 3px;
+    
 }
 /*para poner los titulos a los links de acuerdo al idioma*/
 
  .header-links__home-english::before{
   content: 'Home';
+  font-size: 1.4rem;
 }
 .header-links__home-spanish::before{
     content: 'Inicio';
+    font-size: 1.4rem;
   }
   .header-links__myList-english::before{
     content: 'Most populars';
+    font-size: 1.4rem;
   }
   .header-links__myList-spanish::before{
       content: 'Populares';
+      font-size: 1.4rem;
     }
     .header-links__movies-spanish::before{
         content: 'Cartelera';
+        font-size: 1.4rem;
     }
     .header-links__movies-english::before{
         content: 'New movies';
+        font-size: 1.4rem;
     }
     .header-links__search-spanish::before{
         content: 'Buscar';
+        font-size: 1.4rem;
     }
     .header-links__search-english::before{
         content: 'Search';
+        font-size: 1.4rem;
     }
     .terms-spanish::before{
         content: 'Terminos y Condiciones';
@@ -196,7 +206,7 @@ header .header-links img,
 
 /*estilos para sección newMovies*/
 .newMovies{
-    width: 90%;
+    width:100vw;
     height: 150px;
     display: flex;
     flex-direction: row;
@@ -211,17 +221,20 @@ header .header-links img,
 .newMovies .newMovies-container{
     display:flex;
     justify-content: space-around;
-   scroll-snap-align: center;
-    width: 100%;
+   /* scroll-snap-align: center; */
+    width: 100vw;
     height: 100%;
 }
+
 .topMovie-container{
     display: flex;
-    width: 100%;
+    width: 100vw;
     height: 100%;
-    margin: 0 5px;
+    margin: 0 ;
     position: relative;
-  
+    border: 1px solid red;
+    /*para poder posicionar el primer slide*/
+    left: 3031px;
     
 }
 .newMovies .newMovies-container
@@ -232,8 +245,8 @@ header .header-links img,
 }
 .topMovie-container p{
     position: absolute;
-    top: calc(10%);
-    left: calc(20%);
+    top: calc(6%);
+    left: calc(6%);
     color: var(--whiteTextColor);
 }
 /**/
@@ -246,9 +259,9 @@ header .header-links img,
    padding: 0 5px;
 }
 
-.newMovies-container{
+/* .newMovies-container{
     animation-name: move;
-    animation-duration: 80s;
+    animation-duration: 60s;
     animation-iteration-count: infinite;
     animation-direction:normal; 
     animation-timing-function: linear;
@@ -258,16 +271,16 @@ animation-play-state: paused;
 }  
 @keyframes move{
     0% {
-        margin-left: calc(100vw * 8.8)
+        margin-left: calc(100vw * 9)
     }
      50%{
         
-         margin-left:calc(100vw * -8.8)
+         margin-left:calc(100vw * -9)
      }
      100% {
-        margin-left:calc(100vw * 8.8)
+        margin-left:calc(100vw * 9)
     }
-} 
+}  */
 
 
 
@@ -464,6 +477,7 @@ p{
     position: fixed;
     top:90%;
     right: 60px;
+    z-index: 200;
 }
 
 .goUp img{
@@ -574,10 +588,10 @@ animation-delay: 0.2s;
             margin: 0 auto;
             
         }
-        .newMovies{
-            height: 200px;
+        /* .newMovies{
+            height: 250px;
             
-        }
+        } */
         .new-container img,
         .commingSoon-container img,
         .favourites-container img{
@@ -627,9 +641,9 @@ font-size: 3rem;
 font-family: var(--mainText);
 }
 
-.newMovies{
+/* .newMovies{
     height: 250px;
-}
+} */
 
 .new-container img,
 .commingSoon-container img{
@@ -648,15 +662,15 @@ footer{
  
 
 }
-@media(min-width:1200px){
+/* @media(min-width:1200px){
     .newMovies{
         height: 350px;
     }
     .newMovies-container{
         animation-duration: 120s;
-    }
+    } */
      
-    @keyframes move{
+    /* @keyframes move{
         0% {
             margin-left: calc(100vw * 6.5)
         }
@@ -667,5 +681,5 @@ footer{
          100% {
             margin-left:calc(100vw * 6.5)
         }
-    } 
-}
+    }  
+}*/

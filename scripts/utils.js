@@ -274,3 +274,35 @@ aboutUs.onclick=()=>{
   
 
 }
+// //función para el slider
+// //cada slider
+// const topMovieContainer=document.querySelectorAll(".topMovie-container");
+
+// let contador=1;
+// let width=topMovieContainer[0].clientWidth;
+// let intervalo=3000;
+// //topMovieContainer[0].style.left='740px';
+// console.log(width);
+// console.log(-width*contador);
+
+// window.addEventListener('resize',function(){
+//   width=topMovieContainer[0].clientWidth;
+// })
+// setInterval(function(){
+// slides();
+// },intervalo);
+
+//  function slides(){
+//   //contenedor del slider
+//   topRatedMovies.style.transform='translate('+(-width*contador)+'px)';
+//   topRatedMovies.style.transition='transform .8s';
+//   contador++;
+//   if(contador===topMovieContainer.length){
+//     setTimeout(function(){
+//       topRatedMovies.style.transform='translate(0px)';
+//       topRatedMovies.style.transition='transform .0s';
+//       contador=1;
+//     },1500)
+//   }
+//  }
+
