@@ -1,39 +1,39 @@
 //getting html´s elements
-const newMovies=document.querySelector(".newMovies");
-const studios=document.querySelector(".studios");
+const newMovies = document.querySelector(".newMovies");
+const studios = document.querySelector(".studios");
 
-const newContainer=document.querySelector(".newContainer");
-const commingSoonContainer=document.querySelector(".commingSoonContainer");
-const classificationsContainer=document.querySelector(".classificationsContainer");
-const moviesByClasification=document.querySelector(".moviesByClasification");
-const moviesByClasificationContainer=document.querySelector(".moviesByClasificationContainer");
-const movieDetailContainer=document.querySelector(".movieDetailContainer");
-const favouritesContainer=document.querySelector(".favouritesContainer");
-const movieDetail=document.querySelector(".movieDetail");
+const newContainer = document.querySelector(".newContainer");
+const commingSoonContainer = document.querySelector(".commingSoonContainer");
+const classificationsContainer = document.querySelector(".classificationsContainer");
+const moviesByClasification = document.querySelector(".moviesByClasification");
+const moviesByClasificationContainer = document.querySelector(".moviesByClasificationContainer");
+const movieDetailContainer = document.querySelector(".movieDetailContainer");
+const favouritesContainer = document.querySelector(".favouritesContainer");
+const movieDetail = document.querySelector(".movieDetail");
 
-const header_links__search=document.querySelector(".header-links__search");
-const header_searcher__input=document.querySelector(".header-searcher__input");
+const header_links__search = document.querySelector(".header-links__search");
+const header_searcher__input = document.querySelector(".header-searcher__input");
 
-const topRatedMovies=document.querySelector(".newMovies-container");
-const section=document.querySelector(".classifications");
-const movieContainer=document.querySelector(".new");
-const section_title=document.querySelector(".moviesByClasificationContainer .section-title");
-const commingSoon=document.querySelector(".commingSoon");
-const goUp=document.querySelector(".goUp");
+const topRatedMovies = document.querySelector(".newMovies-container");
+const section = document.querySelector(".classifications");
+const movieContainer = document.querySelector(".new");
+const section_title = document.querySelector(".moviesByClasificationContainer .section-title");
+const commingSoon = document.querySelector(".commingSoon");
+const goUp = document.querySelector(".goUp");
 
-const loading=document.querySelectorAll(".estudios-container--loading");
-const favourites=document.querySelector(".favourites");
+const loading = document.querySelectorAll(".estudios-container--loading");
+const favourites = document.querySelector(".favourites");
 
-const langSelector=document.querySelector(".header-searcher-lang");
+const langSelector = document.querySelector(".header-searcher-lang");
 
-const home=document.querySelector(".header-links__home");
-const popular=document.querySelector(".header-links__myList");
-const tendencies=document.querySelector(".header-links__movies");
-const search=document.querySelector(".header-links__search");
+const home = document.querySelector(".header-links__home");
+const popular = document.querySelector(".header-links__myList");
+const tendencies = document.querySelector(".header-links__movies");
+const search = document.querySelector(".header-links__search");
 
-const advises=document.querySelector(".advices");
-const terms=document.querySelector(".terms");
-const aboutUs=document.querySelector(".aboutUs");
+const advises = document.querySelector(".advices");
+const terms = document.querySelector(".terms");
+const aboutUs = document.querySelector(".aboutUs");
 
 
 

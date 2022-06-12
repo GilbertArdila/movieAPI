@@ -19,7 +19,6 @@ html{
 }
 body{
     width: 100%;
-    max-width: 1400px;
     height: auto;
     margin: 0 auto;
     font-size: 1.6rem;
@@ -221,7 +220,6 @@ header .header-links img,
 .newMovies .newMovies-container{
     display:flex;
     justify-content: space-around;
-   /* scroll-snap-align: center; */
     width: 100vw;
     height: 100%;
 }
@@ -232,9 +230,8 @@ header .header-links img,
     height: 100%;
     margin: 0 ;
     position: relative;
-    border: 1px solid red;
-    /*para poder posicionar el primer slide*/
-    left: 3031px;
+    /*para poder posicionar el primer slide 3031px;*/
+    left: calc(100vw * 9.48);
     
 }
 .newMovies .newMovies-container
@@ -249,7 +246,7 @@ header .header-links img,
     left: calc(6%);
     color: var(--whiteTextColor);
 }
-/**/
+
 .new-container p,
 .favourites-container p{
     margin: 10px auto;
@@ -258,30 +255,6 @@ header .header-links img,
    color: var(--whiteTextColor);
    padding: 0 5px;
 }
-
-/* .newMovies-container{
-    animation-name: move;
-    animation-duration: 60s;
-    animation-iteration-count: infinite;
-    animation-direction:normal; 
-    animation-timing-function: linear;
-}
-.newMovies-container:hover{
-animation-play-state: paused;
-}  
-@keyframes move{
-    0% {
-        margin-left: calc(100vw * 9)
-    }
-     50%{
-        
-         margin-left:calc(100vw * -9)
-     }
-     100% {
-        margin-left:calc(100vw * 9)
-    }
-}  */
-
 
 
 .tituloPelicula{
@@ -588,10 +561,10 @@ animation-delay: 0.2s;
             margin: 0 auto;
             
         }
-        /* .newMovies{
+         .newMovies{
             height: 250px;
             
-        } */
+        } 
         .new-container img,
         .commingSoon-container img,
         .favourites-container img{
@@ -641,9 +614,7 @@ font-size: 3rem;
 font-family: var(--mainText);
 }
 
-/* .newMovies{
-    height: 250px;
-} */
+
 
 .new-container img,
 .commingSoon-container img{
@@ -662,24 +633,9 @@ footer{
  
 
 }
-/* @media(min-width:1200px){
+@media(min-width:1200px){
     .newMovies{
-        height: 350px;
+        height: 400px;
     }
-    .newMovies-container{
-        animation-duration: 120s;
-    } */
-     
-    /* @keyframes move{
-        0% {
-            margin-left: calc(100vw * 6.5)
-        }
-         50%{
-            
-             margin-left:calc(100vw * -6.5)
-         }
-         100% {
-            margin-left:calc(100vw * 6.5)
-        }
-    }  
-}*/
+  
+}

@@ -1,80 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <!--Link to googleFonts-->
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@1,300;1,500&family=Quattrocento+Sans:ital@1&display=swap" rel="stylesheet">
-<!--Link to css styles--> 
+    <!--Link to googleFonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@1,300;1,500&family=Quattrocento+Sans:ital@1&display=swap"
+        rel="stylesheet">
+    <!--Link to css styles-->
     <link rel="stylesheet" href="../movieAPI/styles/main.css">
     <title>API movies</title>
 </head>
+
 <body>
     <header>
-        <section class="header-logo" >
+        <section class="header-logo">
             <img src="./images/movies+.png" alt="logo movies más">
         </section>
 
         <section class="header-links
         ">
-        <a href="#home" class="header-links__home"><img src="./images/home.webp" alt="home"></a>
-
-      
-        <a href="#popular"  class="header-links__myList"><img src="https://cdn1.iconfinder.com/data/icons/entertainment-and-movie-solid-streaming-on-screen/512/Trending_Movies-128.png" alt="populares"></a>
-
-        <a href="#tendencias"  class="header-links__movies"><img src="./images/movies.webp" alt="movies"></a>
-       
-    </section>
-
-    <section class="header-searcher">
-        <input type="search" class="header-searcher__input">
-        <a  class="header-links__search"><img src="./images/search.webp" alt="search"></a>
-
-        <span  class="header-searcher-lang header-searcher-lang--english"></span>
-
-    </section>
+            <a href="#home" class="header-links__home"><img src="./images/home.webp" alt="home"></a>
 
 
-       
+            <a href="#popular" class="header-links__myList"><img
+                    src="https://cdn1.iconfinder.com/data/icons/entertainment-and-movie-solid-streaming-on-screen/512/Trending_Movies-128.png"
+                    alt="populares"></a>
+
+            <a href="#tendencias" class="header-links__movies"><img src="./images/movies.webp" alt="movies"></a>
+
+        </section>
+
+        <section class="header-searcher">
+            <input type="search" class="header-searcher__input">
+            <a class="header-links__search"><img src="./images/search.webp" alt="search"></a>
+
+            <span class="header-searcher-lang header-searcher-lang--english"></span>
+
+        </section>
     </header>
     <main>
 
         <section class="newMovies">
             <div class="newMovies-container ">
+                <!--estos div son temporales para la animación de carga-->
 
-                <!-- <div class="topMovie-container">
-                    <img src="	https://image.tmdb.org/t/p/original/loRmRzQXZeqG78TqZuyvSlEQfZb.jpg" alt="">
-                    <button class="new-container--likeButton"></button>
-                    <p>Schindler's List</p>
-                </div>
-
-                <div class="topMovie-container">
-                    <img src="https://image.tmdb.org/t/p/original/kXfqcdQKsToO0OUXHcrrNCHDBzO.jpg" alt="">
-                    <button class="new-container--likeButton"></button>
-                    <p>The Shawshank Redemption</p>
-                </div>
-
-                <div class="topMovie-container">
-                    <img src="	https://image.tmdb.org/t/p/original/90ez6ArvpO8bvpyIngBuwXOqJm5.jpg" alt="">
-                    <button class="new-container--likeButton"></button>
-                    <p>Dilwale Dulhania Le Jayenge</p>
-                </div>
-
-                <div class="topMovie-container">
-                    <img src="https://image.tmdb.org/t/p/original/rSPw7tgCH9c6NqICZef4kZjFOQ5.jpg" alt="">
-                    <button class="new-container--likeButton"></button>
-                    <p>The Godfather</p>
-                </div>
-
-                <div class="topMovie-container">
-                    <img src="	https://image.tmdb.org/t/p/original/loRmRzQXZeqG78TqZuyvSlEQfZb.jpg" alt="">
-                    <button class="new-container--likeButton"></button>
-                    <p>Schindler's List</p>
-                </div> -->
-                <!-- <div class=" newMovies-container--loading ">
+                <div class=" newMovies-container--loading ">
                 </div>
                 <div class=" newMovies-container--loading ">
                 </div>
@@ -87,34 +62,39 @@
                 <div class=" newMovies-container--loading ">
                 </div>
                 <div class=" newMovies-container--loading ">
-                </div> -->
+                </div>
             </div>
-            <!--estos div son temporales para la animación de carga-->
-           
-          
-           
-           
         </section>
 
         <section class="studios">
-            <a href="#" class="studios-container "> <div class=" disney container"><img src="./images/disney.jfif" alt="disney"></div></a>
+            <a href="#" class="studios-container ">
+                <div class=" disney container"><img src="./images/disney.jfif" alt="disney"></div>
+            </a>
 
-            <a href="#" class="studios-container "> <div class=" pixar container"><img src="./images/pixar.jfif" alt="pixar"></div></a>
+            <a href="#" class="studios-container ">
+                <div class=" pixar container"><img src="./images/pixar.jfif" alt="pixar"></div>
+            </a>
 
-            <a href="#" class="studios-container "><div class=" marvel container"><img src="./images/marvel.png" alt="marvel"></div></a>
-           
-           <a href="#" class="studios-container "><div class=" starWars container"><img src="./images/starWars.png" alt="starWars"></div></a>
-            
-           <a href="#" class="studios-container "><div class=" natgeo container"><img src="./images/natgeo.png" alt="nat geo"></div></a>
+            <a href="#" class="studios-container ">
+                <div class=" marvel container"><img src="./images/marvel.png" alt="marvel"></div>
+            </a>
 
-           <a href="#" class=" estudios-container--loading loading"></a>
-          
+            <a href="#" class="studios-container ">
+                <div class=" starWars container"><img src="./images/starWars.png" alt="starWars"></div>
+            </a>
 
-            
-            
-            
+            <a href="#" class="studios-container ">
+                <div class=" natgeo container"><img src="./images/natgeo.png" alt="nat geo"></div>
+            </a>
+
+            <a href="#" class=" estudios-container--loading loading"></a>
+
+
+
+
+
         </section>
-       
+
         <div class="sectionContainer newContainer">
             <h3 class="section-title"> </h3>
             <section class="new">
@@ -122,9 +102,9 @@
                 <div class="sectionContainer--loading loading"></div>
                 <div class="sectionContainer--loading loading"></div>
             </section>
-               
+
         </div>
-       
+
         <div class="sectionContainer commingSoonContainer">
             <h3 class="section-title"></h3>
             <section class="commingSoon">
@@ -140,10 +120,10 @@
                 <div class="sectionContainer--loading loading"></div>
                 <div class="sectionContainer--loading loading"></div>
                 <div class="sectionContainer--loading loading"></div>
-               
+
             </section>
         </div>
-        
+
         <div class="sectionContainer movieDetailContainer">
             <h3 class="section-title "></h3>
             <section class="movieDetail">
@@ -162,7 +142,7 @@
             </section>
         </div>
 
-       
+
 
 
         <div class="sectionContainer classificationsContainer">
@@ -175,30 +155,30 @@
         </div>
 
         <section class="goUp hidden">
-           <img src="https://cdn3.iconfinder.com/data/icons/UltimateGnome/128x128/actions/go-up.png" alt="go Up">
+            <img src="https://cdn3.iconfinder.com/data/icons/UltimateGnome/128x128/actions/go-up.png" alt="go Up">
         </section>
-      
-    </main> 
+
+    </main>
     <footer>
         <section class="footer-logo"><img src="./images/movies+.png" alt="logo"></section>
-        
+
         <section class="footer-terms">
             <h3 class="section-title terms"></h3>
-            
+
         </section>
         <section class="footer-aboutIt">
-             <h3 class="section-title aboutUs"></h3>
-           
+            <h3 class="section-title aboutUs"></h3>
+
         </section>
         <section class="advices ">
             <img src="https://cdn1.iconfinder.com/data/icons/linecon/512/cross-128.png" alt="close" class="close">
-           
+
         </section>
     </footer>
 
 
 
-<!--Script to axios-->
+    <!--Script to axios-->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!--Script to js-->
     <script src="./scripts/nodes.js"></script>
@@ -207,6 +187,7 @@
     <script src="./scripts/personal.js"></script>
     <script src="./scripts/main.js"></script>
     <script src="./scripts/navigation.js"></script>
-  
+
 </body>
+
 </html>
