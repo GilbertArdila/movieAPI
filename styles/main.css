@@ -34,6 +34,9 @@ h3{
     font-family: var(--secondaryText);
     color: var(--whiteTextColor);
 }
+img{
+    cursor: pointer;
+}
 
 /*estilos para ocultar seccion*/
 main .hidden
