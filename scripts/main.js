@@ -308,10 +308,28 @@ async function getMovieById(id) {
 
 
   }
+  const likeButton = document.createElement("button");
+    likeButton.classList.add("new-container--likeButton")
 
+    //verificamos si la película ya está en la lista para ponerle por defecto la clase de new-container--dontLikeButton
+    likedMoviesList()[movie.id] ? likeButton.classList.add("new-container--dontLikeButton") : likeButton.classList.add("new-container--likeButton");
+    //para poner o quitar el like
+    likeButton.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      //para agregar  o quitar clase con el click
+      likeButton.classList.toggle('new-container--dontLikeButton')
+      //agregando pelicula a localStorage
+      likeMovie(movie);
+      window.location.reload();
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    })
+  div.style.position='relative';
   div.appendChild(span);
   div.appendChild(img);
   div.appendChild(p);
+  div.appendChild(likeButton)
   movieDetail.appendChild(div);
 
   relatedMovies(id)
