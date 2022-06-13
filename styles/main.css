@@ -546,7 +546,37 @@ animation-delay: 0.2s;
 }
 .sectionContainer--loading:nth-child(3){
     animation-delay: 0.4s;
-    }
+}
+/*stilos para tutorial*/
+.tutorial-div{
+    width: calc(20%);
+    height: auto;
+    position: absolute;
+    top: 100px;
+    left: calc(20%);
+    padding: 10px;
+    background-color: var(--secondaryBlue);
+    text-align: justify;
+    font-size: 1.6rem;
+    font-family: var(--secondaryText);
+    color: var(--whiteTextColor);
+    z-index: 230;
+}
+.tutorial-div--img{
+    width: 40px;
+    height: 40px;
+    margin: 0 20px;
+    background-color: var(--whiteTextColor);
+}
+.tutorial-div--button{
+    margin: 10px 10px;
+    width: 100px;
+    height: auto;
+    border: none;
+    border-radius: 3px;
+    background-color: var(--mainBlue);
+    color: var(--whiteTextColor);
+}
     @media(min-width:700px){
         .header-links {
            padding: 5px 20px;

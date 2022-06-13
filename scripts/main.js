@@ -131,7 +131,6 @@ async function getMovieBySearch(query) {
   });
   const movies = data.results;
   MaxPages = data.total_pages;
-  console.log(MaxPages)
   section_title.innerHTML = ""
   createTitles(lang, section_title, 'Resultados', 'Coincidences');
   createMovies(moviesByClasification, movies,)
@@ -329,9 +328,9 @@ async function relatedMovies(id) {
   createTitles(lang, section_title, 'Películas recomendadas', 'Related movies');
   //checking if there is not related movies
   if (movies.length <= 0) {
-
-    section_title.innerHTML = ""
-    createTitles(lang, section_title, 'Lo sentimos no tenemos recomendaciones para este título', 'We are sorry, are not related movies to this title');
+    moviesByClasification.innerHTML = '';
+    section_title.innerHTML = "";
+    createTitles(lang, section_title, 'Lo sentimos no tenemos recomendaciones para este título', 'We are sorry, rhere are not related movies to this title');
 
 
   } else {

@@ -1,5 +1,8 @@
 let page = 1;
 let MaxPages;
+// localStorage.setItem('tutorial',true);
+let showTutorial=localStorage.getItem('tutorial');
+console.log(showTutorial);
 //creating function to detecte the page location
 
 //agregando evento tanto a la imagen de busqueda como al enter del searcher
@@ -23,6 +26,44 @@ header_searcher__input.onkeyup = (e) => {
 
 }
 function navigator() {
+    if((showTutorial!='false' || showTutorial==null) && location.hash.startsWith('#home')){
+       const div=document.createElement("div");
+       div.classList.add("tutorial-div");
+
+       const img=document.createElement("img");
+       img.setAttribute("src",'https://cdn1.iconfinder.com/data/icons/hawcons/32/699015-icon-29-information-128.png');
+       img.classList.add("tutorial-div--img");
+       div.appendChild(img);
+
+       const span=document.createElement("span");
+       const spanText=document.createTextNode("1.Da click en cada película para ver su calificación y descripción"+" 2.Puedes guardar tus películas favoritas en tu lista de favoritas dando like '❤️' o sacarlas dando don´t like'👎' en cada una de ellas "+ 
+       "3.Puedes filtrar las películas por categoria llendo al final de la página y eligiendo la categoria que deseas ver "+
+       "4.Tambien puedes buscar tu película por nombre utilizando el buscador y dando enter o click en la imagen de la lupa");
+       span.appendChild(spanText);
+       div.appendChild(span);
+
+       const exitButton=document.createElement("button");
+       exitButton.classList.add("tutorial-div--button");
+       exitButton.innerText="Cerrar";
+       div.appendChild(exitButton);
+
+       const dontShowAgainButton=document.createElement("button");
+       dontShowAgainButton.classList.add("tutorial-div--button");
+       dontShowAgainButton.innerText="No mostrar de nuevo";
+       div.appendChild(dontShowAgainButton);
+
+       studios.appendChild(div);
+
+       exitButton.onclick=()=>{
+         div.style.display='none';
+       }
+       dontShowAgainButton.onclick=()=>{
+       
+        localStorage.setItem('tutorial',false);
+        div.style.display='none';
+        
+       }
+    }
 
     if (location.hash.startsWith('#search=')) {
         searchPage()
