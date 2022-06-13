@@ -103,5 +103,5 @@ dist
 # TernJS port file
 .tern-port
 
-# personal.js (API_KEY)
-scripts/personal.js
+# # personal.js (API_KEY)
+# scripts/personal.js
