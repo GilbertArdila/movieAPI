@@ -134,7 +134,11 @@ function createPreviewMovies(container, movies) {
     img.setAttribute("data-img", 'https://image.tmdb.org/t/p/w300/' + movie.poster_path);
     lazyLoader.observe(img)
 
-    
+    const likeButton = document.createElement("button");
+    likeButton.classList.add("new-container--likeButton")
+
+    //verificamos si la película ya está en la lista para ponerle por defecto la clase de new-container--dontLikeButton
+    likedMoviesList()[movie.id] ? likeButton.classList.add("new-container--dontLikeButton") : likeButton.classList.add("new-container--likeButton");
 
 
     const p = document.createElement("p");
@@ -143,11 +147,23 @@ function createPreviewMovies(container, movies) {
 
 
     div.appendChild(img)
+    div.appendChild(likeButton)
     div.appendChild(p);
 
     container.appendChild(div);
 
-    
+    //para poner o quitar el like
+    likeButton.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      //para agregar  o quitar clase con el click
+      likeButton.classList.toggle('new-container--dontLikeButton')
+      //agregando pelicula a localStorage
+      likeMovie(movie);
+      window.location.reload();
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    })
 
     //para poner el hash
     img.addEventListener("click", function () {

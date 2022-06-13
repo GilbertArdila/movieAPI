@@ -284,7 +284,9 @@ async function getMovieById(id) {
   span.innerHTML = 'Calificación ' + movie.vote_average;
   const img = document.createElement("img");
   img.setAttribute("alt", movie.title);
-  img.setAttribute('data-img', 'https://image.tmdb.org/t/p/original' + movie.poster_path);
+  img.setAttribute('width','60%');
+  img.style.margin='0 auto';
+    img.setAttribute('data-img', 'https://image.tmdb.org/t/p/original' + movie.poster_path);
 
 
   if (movie.poster_path === null) {

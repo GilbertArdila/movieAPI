@@ -61,7 +61,6 @@ function navigator() {
        
         localStorage.setItem('tutorial',false);
         div.style.display='none';
-        window.location.reload();
         
        }
     }

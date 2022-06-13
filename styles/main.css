@@ -72,6 +72,9 @@ header{
     display: flex;
     justify-content: center;
 }
+.header-logo img{
+    cursor: default;
+}
 header section{
     display: flex;
     align-items: center;
@@ -422,6 +425,7 @@ margin: 0 auto;
     color: white;
 }
 .movieByCategoryContainer{
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 300px;
@@ -470,6 +474,9 @@ footer{
     padding: 10px;
     margin:10px auto;
     background-color: var(--mainBlue);
+}
+.footer-logo img{
+    cursor:default;
 }
 .terms,
 .aboutUs{
