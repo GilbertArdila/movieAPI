@@ -52,7 +52,7 @@ function navigator() {
        dontShowAgainButton.innerText="No mostrar de nuevo";
        div.appendChild(dontShowAgainButton);
 
-       studios.appendChild(div);
+       newMovies.appendChild(div);
 
        exitButton.onclick=()=>{
          div.style.display='none';

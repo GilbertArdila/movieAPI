@@ -338,6 +338,7 @@ header .header-links img,
     height: auto;
     display: flex;
     flex-direction: row;
+    justify-content: center;
     overflow-x: scroll;
     overflow-y: hidden;
     overscroll-behavior-x: contain;
@@ -356,6 +357,7 @@ header .header-links img,
     height: auto;
     text-align: left;
     scroll-snap-align: center;
+    margin: 0 5px;
    
 }
 .new-container img,
@@ -559,11 +561,11 @@ animation-delay: 0.2s;
 }
 /*stilos para tutorial*/
 .tutorial-div{
-    width: calc(20%);
+    width: calc(50%);
     height: auto;
     position: absolute;
     top: 100px;
-    left: calc(20%);
+    left: calc(40%);
     padding: 10px;
     background-color: var(--secondaryBlue);
     text-align: justify;
@@ -675,7 +677,16 @@ footer{
 }
 @media(min-width:1200px){
     .newMovies{
+        width: 1200px;
         height: 400px;
     }
-  
+    .topMovie-container{
+        /*para poder posicionar el primer slide 3031px;*/
+        left: calc(1200px * 9.5);
+        
+    }
+    .newMovies .newMovies-container .topMovie-container img{
+        width: 100vw;
+        max-width: 1200px;
+    }
 }
