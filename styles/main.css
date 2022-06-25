@@ -338,7 +338,6 @@ header .header-links img,
     height: auto;
     display: flex;
     flex-direction: row;
-    justify-content: center;
     overflow-x: scroll;
     overflow-y: hidden;
     overscroll-behavior-x: contain;
